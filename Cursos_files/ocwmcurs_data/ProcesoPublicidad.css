@@ -1,0 +1,154 @@
+body{
+	padding: 8px;
+}
+
+.etiqSeccion{
+	margin-top: 3px;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.cabecera ul {
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+
+.cabecera li{
+    line-height: 1.15;
+    position:relative;
+}
+
+.pucpMenuProcesos {
+	width: 150px;
+}
+
+.required-table:after {
+  	content: " (*)";
+  	font-weight: bold; 
+  	color: white;
+}
+
+.pucpEtiqOblig:after {
+  	content: " (*)";
+  	font-weight: bold; 
+  	color: red;
+}
+
+.textoConsulta {
+    border-radius: 5px;
+    border: 1px solid Gainsboro;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.btn-group a {
+	text-decoration: none;
+}
+
+.mensajeInf {
+	margin-bottom: 5px;
+}
+
+.botonesDer {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.botonesCen {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.chkIndicador{
+	margin-bottom: 0px;
+}
+
+.filaIndicador{
+	margin-left: 0px;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+   	background-color: Gainsboro;
+}
+
+.tblPublicidad{
+	margin-bottom: 10px;
+}
+
+.inputRegistro{
+	height: 28px;
+}
+
+.campoNoObligatorio{
+	font-weight: bold;
+}
+
+.table {
+    border-bottom:0px !important;
+}
+.table th, .table td {
+    border: 0px !important;
+}
+.fixed-table-container {
+    border:0px !important;
+}
+
+.centrado{
+	text-align: center;
+}
+
+.titImagen{
+	font-size: 10pt;
+}
+
+.imgCentrada{
+	margin: 0 auto;
+}
+
+#tabsPublicidad li a { 
+	text-decoration: none;
+	border-color: #FFFFFF;
+	background-color: #4A96AC;
+	color: #FFFFFF; 
+}
+
+#tabsPublicidad li.active a {
+	text-decoration: none;
+	border-bottom-color: transparent;
+	background-color: #2C7D92;
+	color: #FFFFFF; 
+}
+
+.tabsGeneral {
+    border-bottom: 2px solid gainsboro;
+}
+
+hr { 
+	margin-bottom: 6.667px;
+	margin-top: 6.667px;
+    border: 1px inset;
+}
+
+table{
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+
+td{
+	padding: 1px;	
+}
+
+a:hover{	
+    text-decoration: none;
+}
+
+.cellspacing0 {
+    border-spacing: 0px;
+}
+
+.cellpadding0 > tbody > tr >td, .cellpadding0 > tr >td, .cellpadding0 > thead > th,.cellpadding0 > thead >tr> th{
+    padding: 0px;
+}

@@ -1,0 +1,116 @@
+.principal {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.principal .contenido {
+	clear:both;
+	padding-top: 10px;
+}
+
+.principal .tituloPrincipal {
+	margin-top: 10px;
+}
+
+.principal .seccionPreferencias{
+	margin-top: 10px;
+}
+
+.principal .contenido .marco{
+	float:left;
+	background-color: rgb(74, 150, 172);
+	width:100%;
+	padding: 0.5px;
+}
+
+.principal .contenido .marcoAux{	
+	background-color: rgb(74, 150, 172);	
+}
+
+.principal .msjAyuda{
+	margin-top: 0px;
+}
+
+.principal .marco .marcoInterior{
+	/*background:url(images/descripcion1px.gif) repeat-x #fff;*/
+	background:repeat-x #fff;
+	border:none;
+	margin:3px;
+	padding:7px;
+}
+
+.principal .dataBox{
+	clear:both;
+	position:relative;
+	font-size:12px;
+	line-height:18px;
+	/**margin-bottom:10px;**/
+}
+
+.principal .dataBox  h2{
+	background-color:rgb(44, 125, 146);
+	border: 2px solid rgb(44, 125, 146);
+	padding: 3px 3px 3px 10px;
+	font-size:12px;
+	color:#fff;
+	margin:0;
+    cursor:move;
+}
+
+.principal .subtitulo{	
+	padding-left: 3px;
+	font-size: 12px;
+}
+
+.principal a {
+	text-decoration:none;	
+	color:#3399cc;
+}
+
+.principal p {
+	padding-right: 3px;
+	text-align: justify;
+}
+
+.panel {
+	border: none;
+}
+
+.principal a.preferencias{
+	text-decoration: underline;
+	float: right;
+	padding-right: 5px;
+}
+
+.principal .agregarFlotarDerecha {
+	float:right;
+}
+
+.dragbox-content{      
+    margin:7px;  
+    line-height:1.5em;  
+}
+
+.column .placeholder{  
+    background: #f0f0f0;  
+    border:1px dashed #ddd;  
+}
+
+.dragbox h2.contraer{  
+    background:rgb(74, 150, 172) no-repeat top right;
+	background-position: right;
+}
+
+table{
+	border-collapse: separate;
+}
+
+body{
+	margin: 4px;
+}
+
+hr { 
+	margin-bottom: 6.667px;
+	margin-top: 6.667px;
+    border: 1px inset;
+}

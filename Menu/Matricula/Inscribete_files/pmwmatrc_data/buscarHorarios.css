@@ -1,0 +1,18 @@
+select{
+   /* background-color: white;
+    border-color: #4A96AC;
+    border-width: 1px;
+    border-style: solid;
+    font-size:12px;
+    cursor:pointer;*/
+    font-family: Arial; 
+    font-size: 8pt 
+}
+
+select option {
+    font-family: Arial; 
+    font-size: 8pt 
+}
+
+.pucpCeldaNoPermitidoPreins {font-family: Arial; font-size: 8pt ; background:#F2ABAB}
+

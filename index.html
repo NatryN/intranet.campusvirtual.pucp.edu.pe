@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>PUCP | Login</title>
+		<link rel="stylesheet" href="Login_files/style.css"><meta http-equiv="Expires" content="-1"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"><link rel="icon" href="https://pandora.pucp.edu.pe/pucp/c3/favicon.ico" type="image/x-icon"><script type="text/javascript" src="Login_files/jquery.min.js"></script>
+		<script type="text/javascript" src="Login_files/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="Login_files/cas.js"></script>
+		<script type="text/javascript" src="Login_files/images.js"></script>
+		<script type="text/javascript" src="Login_files/AccionIngresarOlvidoContrasena.js"></script>
+		<script type="text/javascript">
+			javascript:window.history.forward(history.length);
+			
+			
+			netscapeAux = "";
+			ver = navigator.appVersion; len = ver.length;
+			for(var iln = 0; iln < len; iln++) if (ver.charAt(iln) == "(") break;
+			netscapeAux = (ver.charAt(iln+1).toUpperCase() != "C");
+			
+			function keyUp(DnEvents) { 
+				
+				k = (netscapeAux) ? DnEvents.which : window.event.keyCode;
+				if (k == 13) { 
+					Validar();
+				}
+			}
+			
+			document.onkeyup = keyUp; 
+			if (netscapeAux) document.captureEvents(Event.KEYDOWN|Event.KEYUP);
+			
+			
+			var enviado=false;
+			function pucpSubmit() {
+				if (enviado==false) {
+					enviado=true;
+					return true; 
+				} else {
+					return false; 
+				}
+			}
+			
+			function Validar() {		 
+				if(document.form.username.value == "" ) {
+					alert('Debe ingresar su identificación de usuario.');
+					document.form.username.focus();
+				}  else if(document.form.password.value == "" ) {
+					alert('Debe ingresar su contraseña.');
+					document.form.password.focus();
+				} else {				 
+					if (pucpSubmit() == true) {
+						document.form.submit();  
+					}
+				}
+			}
+			
+			function ValidarEn() {		 
+				if(document.form.username.value == "" ) {
+					alert('You must enter your user.');
+					document.form.username.focus();
+				} else if(document.form.password.value == "" ) {
+					alert('You must enter your password.');
+					document.form.password.focus();
+				} else {				 
+					if (pucpSubmit() == true) {
+						document.form.submit();  
+					}
+				}
+			}
+		</script>
+        
+        <script type="text/javascript">
+			
+			try {
+				if (window.top.location!=window.location) {        	
+					var pagina=unescape(String(window.location));        	
+					var index = pagina.indexOf("?TARGET=");
+					var longparametro=8;
+					if (index==-1) {  index=pagina.indexOf("?service="); longparametro=9; }
+					var parametro=pagina.substring(index+8);        	
+					
+					
+					var indice3Slash=0;
+					var cantSlash=0;
+					for(var i=0;i<parametro.length;i++)
+					{
+						indice3Slash++;
+						if(parametro.charAt(i)=="/") cantSlash++;
+						if (cantSlash==3) break;
+					}
+					
+					if (index==-1 || cantSlash!=3) window.top.location.href = "https://pandora.pucp.edu.pe/pucp/";
+					else window.top.location.href= parametro.substring(0,indice3Slash);        	        	
+				}
+				} catch(err) {
+			}
+		</script>
+		
+		<script>
+			var ADAPT_CONFIG = {
+				path: ' ', 
+				dynamic: true,
+				range: [
+				'0px    to 760px  = /pucp/c3/css/mobile.css?ver=09062021',
+				'760px  to 980px  = /pucp/c3/css/mediano.css?ver=09062021',
+				'980px           =  '
+				]
+			};
+		</script>
+		<script type="text/javascript" src="Login_files/adapt.min.js"></script><link rel="stylesheet" media="screen" href="">
+		
+	</head>
+	<body onload="document.getElementById('username').focus();">
+		<div class="wrapper">
+			
+			<div id="header">
+				<div class="head-content">
+					<a href="http://www.pucp.edu.pe/" target="_blank"><img class="izq logo2021" src="Login_files/logo_pucp2021.svg"></a>
+					<div class="clear cero"></div>
+				</div>
+			</div>
+			
+			<div id="cuerpo">
+				<div class="h1-logueo sin-sombra-2 izq">
+					
+						<h1>You are accessing the service Campus Virtual</h1>
+					
+					
+					<p>Authentication required. Enter your PUCP username and password, which are private.</p>
+					
+				</div> 
+				
+				<div class="idioma der">
+					<div class="cambiar izq">Cambiar idioma:</div>
+					<div class="bandera-espanol der"> 
+						<a href="https://pandora.pucp.edu.pe/pucp/login?TARGET=https%3A%2F%2Fares.pucp.edu.pe%2Fpucp%2Fjsp%2FIntranet.jsp&amp;locale=es">Español</a>
+					</div>	
+					
+				</div>
+				
+				<div class="logueo-sup clear"></div>  
+				<div class="logueo-med">
+                    <form method="post" name="form" id="fm1" action="login">
+                        <strong>
+							</strong>
+						
+						<div class="logueo-cuerpo">
+							<div class="formulario">    
+								
+								<div class="izq label">Username:</div> 
+								
+								<div>
+									<input class="input der" id="username" size="30" tabindex="1" type="text" accesskey="u" name="username"></div>
+								<div class="clear cero"></div>	
+								
+								<div class="izq label">Password:</div>
+                                <input class="input der" type="password" id="password" size="30" tabindex="2" accesskey="p" autocomplete="off" name="password" value="" maxlength="32"><input type="hidden" name="execution" value="03d6424b-c481-4b9f-810b-6870f76c4c73_ZXlKaGJHY2lPaUpJVXpVeE1pSjkuUU05UzFOV0FjOXJBRXVDNHBNSXpIdnhPY09XVGtMcEtadllBS25mSnZweDZ3azVLelVQTkJJMFVNVFVwcGtPbmcrVnRCNWdUcmozd2Z6SVhORlQvNGdWRC8wSWVDYnkzbm81SnEyWFF1b2hLSmp3VFY2ZEU1eTB5Mmtpd1QyQmNrRExBOEkwSEpMS2hHS1RENkVmZEI1SWVIazllVmFBUlU3NHpqUUhSM0VlNHVRWUVhRWZZd2srNzg1QzU2WmVMTHRjSVM5Mm9ybXZEMElpcE4wZ2VkcEFQVjV6dXRZTHlwUzVnU2hPa1VseXVaY25FRCszUENIODRoQVROTEtNZHVrbFY5cnpnMFBUVzBJTWxwS0h2b09HdnVmR2k3c1FhNXNOcTFJbzdGZENaSW5haGJZU0hqSXdTSncyR0k0SHZFZldSaHFnZXRUeURjb2RzVWh3eGNJSVRXQ1l0ODA5Y2JxbGE3WHBkNUpndEU4VVFLd1JpdytFczYxUWYyVEZwSVNqR3YyMlRYeG1vUVdJa1ZtRXFRWkRJdFZGYzdtNzB5L2p5V0VMSDM0YXBSZitpMjhJSnBlRW1zSms0MjFpRE9nbWt5elpldnFGbmZjK0lTdHVkRnNJa0o4QjRMZFZGWlUrMDMwMUFjVXhkUW5ENDN1bXJzQ1lMc3JkdVo2d05XMmVzYnJRcDE5VmZZNFpXWFg0d2lGQncvdWIwbDUwUTNqd1FIbXZWRy9WUTdKM3FMMHR5NWNEcGFSQXdLSnVmY1AxTlkzbkxYbkFtRlRvUW5OOWVzcEFFTEdSV2tNUXhCLzBxMzhEZ3NKNThsUGpjMWpjbVdOdTBUNFlyTWRnMldzTm12cFJPSmlKNlAvSWRxS0x5SE9oa0I0T2VGaEFmSmk4aHFZS25uaXdoR1YvWnpTWFhUbE9rb1hwMkdXdlVvRGhGb0s1ZTdXTGh1ck5Lb0JzdHhWVUFNVHdmNm5xSjZjb0JweExnbStiaitiVkhPZFJUVDBZVFZzZVJFSmdyWE84M2pqU09jSHhXZmd3cnNZN3RkbDQ3dm5xNDdMQmpFSWo0RFB3MGNxRy9laWxBaTBkeS9YVHY0MUdEV0xQODlHelNFWjNQTDYra2JBZE9OTjJjWVhyN2tPRGZObW8ycVJKalZlOUoyU04zNzNSS3BubW1VVzZZYnEvMFpSK0J0Yzd2MHVUbmFIQ2dhVmFLdkZYMVoxTGcxa2I0SEIrMklMV0lUbGkyR1U3eHJXbEJxUmd5ZnhlTGVtd2lSbWY5ajl0ODhzNWJIaFlJUUVGVFI3NGkrandUVEYrUEdYeXpTaHRmTkIxaXc4U1hNZ3BtOTBzbDAya2piVkU5clFabVlzYnlZWHVrNTZ4KzJzN2hDM3ZXZXpyWTRkSDM2K1hGZ3pPQ1JhYXJOSG81QXh5MGZCWHpaZlZCbWtvQmcrSTVWcnpKbzMza0pNemg2QVIyczBJNmpOQjhieHBacG0yNnU4clU4dXIwL2hHT3EvcXEzQzlsaE1BKzhMYzBkUWs5NFRzZ3BLL1FXd0t4T0lyYUhwaXIyakJpSWhsZ3RESXFvTUdFWWhBdFhNZktBWVVGRy8vZS85MDhlTU1BNXhJZ1BjbUZuTk5RTDZjb252MFMxNUF4TVRYQXFSbWpqSmhVQ2QvcHF4VkUvNUx2M1lFeHpmUzBPZW5YbkRncjFTdlp6VGpvZUlKdVpBT3FlN0ZBSXJNNVpZUWtYUGxVZTA2OWNLT2JMckFRazRUM1h0a1Q3MTBUS3hCZGx5dzc0OEU4RGZCeEVKU3NYSHBHY0FNVXR6Q0t1YzU1R3hUZHJldmtDNVFEMm94WGVZQmxSbjZ1eU04dWVvNEhnUkcxWmxMSVNBUVJod1RFSEtONE93cGhoTHU0M0dhVExMQldaNlVydk5pU0VmT0hOMUpLdGNJeWx0MHdWOFd4bHl6MzQxTkpEQ2RFVDFsdVhhWmFUNkk5SC9BVTBHdys3eHRuUUw1N01ZV0oyVlY0bXJqRGltZHJxU3JSOWgyazZwYVlPSGtJbm1sMHVVeTdGb3l4MWtTRVRjbDVYVkZMbFlZNms2LzJRWFFETHpkWThjRE5hY2FKM2hJYnNxQythdzdkSEdjcGpWenVDN0JTbTdMdWtIa1RlbzF2b2RFTkljNDcrNW41WWZTOEsxOUVZNit6TnA2VE5Ra2k4djQ3OGlnK01ualUrdmdmOGFyK3hNTXJ5OFZDV3pXYnI0bmZnOXMyRHlPOGtkL0hiR3YwNEw3QTMvVjBrTGhmcUhtZkhtbndHM0hlVStSWHFJdlNQblNxUUZLbEp2WEg3aW82OUdCNXdyUkl5c2UvWGtvZnExdlVYOFRKdFFJUUtXZjJpSE1OWUFKdkJTemxmcE0wS3J0UW4xOXFnTjJydXVTeEZDcDZsR2toOTJIT0luYTFReTRWWE9udzRNMVNHakN3WlFZdDgrR01Hd09WcnYyZlFkZkk2OVBYeWphVlNUM3QzMHZpbGQ5UWhsbzlYUGVoMGJPN3ovVkI0SCsvNEZjcTFJa2VFNTdPRHdSbXBJOGFReEdCU0VCRG1lZHkxdXdQMHpyMXBkbE0rYjE3R0hJR25IVjJ0SVF0N0Y0dnFBM213NTc0bWNMaVdwM1lGcUNBcUlHdXRuSitmYWllOE4ySEE4OGdFNjRnenZRUnhES2orS0hjOU9BK1Z2WHkvZVE1QkxGdGhJUjdLR1FwVThrR0pNaE9BclhMZlFRejI2cUdMN0JoWWZUUEtYOU5BM1g1SjkvcGNUcUJpb1VJZC9qMkt3dXRYemRhZ2kyckZCZllJRVFJQnFWb0V1OC9WWDBnMkJ2dTdwSThaTkJPdlpXb0pZS0dlbUVZWjNTeElRUm1lYm9ndS8zNnViVUtVTVZiOUZqTWhXNEMvUVhWYUgwU3JxUHlJc3U1U0pRbUxRTzNRWXlwa1pZMmRiZmo3d3NIR2tpcTRXY3V4ZmJnTHlXQkF6ZXJMazZzRW41RkNkUGRTN1NnVVVJMEhROGUyd3ErWmdwaHFiNCtuK25BSjhOUWp5MHRGank5eUd5SlR3VTZMUXozNXk2R0N6OE1pYlZXOThPN0NDSTNGc1lMSVF2TTdNempFdDJxVU90VDB6eUo3RnR4bWFmcXR2ZHloNGxRaTNocnduck43bUJQN2dadUR5Tk5rd3NleDdDdGphOGcwZ0xvV0pBZkNjRU1JampiT012WStLWFFleFgzN3k4bi9Bb3BzV0VRL24rOVZLUlU3K0tZaFQvenc3dmo4WkcxQmVybEFJS0dFd2VYZHI5bzUvZGNZc3hIMkh4TXEyL0p3djZVWUtIMVFsRnZZKzNIY21udjNvY1VKZjNEeVJlaGJVRHJmOVcvYWtHeEw5SDNSZVc2M0RBM1ZVRDJkVG9ab2Y4ZnR5M0FZdWhJeVVnc2oyRStFS0xyQkwwbzB1V3pQSE1vei9scnorWmdmVTl1TFh6eDIxYWl5UUI0N3VwOXpLRXhkSE4yOVJNNCtxT0NSb0hQZXJJVkh3VFY4YlZlMW80Q3lNTDVIYittL3ZBMXlIUmJwZGhtQURxdWVmeGpBYVBuOVJDSjlQQnczcjJYd0pmb3hpcW0wcTR6d0xrZjVkdGZHRTRndG1MV0xrb2g4N0pJc3V5R01CSm1Pd2kvRE9oaEUwdHZHU1E1WHBGVHQxK1RVNXBrbzN0L2lmNXl2UTR2Ujg2bXVXbDlyaVFSNHVWeFQ1MDcrZmRLNXRPNFlzRkljZi9oTmxBSmkxamxDRFJHd3BPZGZUS1pSaWRNTFlVSHQxcWFxNU4rZi9jZVhOR2Z0S0VmbUR0L0J1dHRnU1VhNWJBWEUxRXJjWTR5dGhVb3Zqd0hDTUVJNVlhTlRQWTZaMm9sTnc3L1drWWVlQm1oYUIvMTBzNFdxM1FtdmkrSnp1VVc2ZGpuYUZKSzEyVG83UUNDbWVSalVDWlNPV3N4OGU4M2N5WmYxTlgxSXJPN2JxZjQwSUVaWFhoZTFhRjg4bzcwMW44N20yUzhkdnM2TEo5MTN3YTFxcVJlWkQzQk5rTFFhS0FVZmc3aWNXeVJNc3RrWFpuQk9sRGc1TlFCc2lvOXF2QXFVaTBlL0RJUEpVMjJOSnlUUjVFTUlvWT0uRldYZDYxOWVfblA0eGlYUUZhV2Z4UTNvNkFLdDU5ZTFTTTVEY1JwX0dZRkF6X0dmZDhSRS1kck1vVzVlcEprUURWb3M1aGdsWmtDbC1tZXB2R2t4TFE="><input type="hidden" name="_eventId" value="submit"><input type="hidden" name="geolocation"><div class="clear cero"></div>	
+								
+								<div class="enviar der">
+									<input type="button" class="submit izq" value="Log in" onclick="location.href = 'Cursos.htm';"><a href="javascript:IngresarOlvidoContrasenaEn()" class="olvido">Forgot your password?</a>
+								</div>
+								
+								<div class="clear cero"></div>
+								
+							</div>
+						</div>					       
+					</form>
+					
+					<div class="logueo-pie">
+						<div class="izq warning-azul">
+							<span>For security reasons, don't forget to log out, even before closing the browser.</span>
+							<a href="http://intranet.pucp.edu.pe/normas_servicio_contrasena_unica_ENG.pdf">Read service conditions.</a>
+						</div>
+						
+						<div class="der volver">
+							<a href="http://intranet.pucp.edu.pe/directorio-servicios.html" onclick="return confirm('The following content is not available in English. It will be displayed in Spanish.');">Go to service directory</a>
+						</div>
+						<div class="clear cero"></div>
+					</div>
+					
+				</div> 
+				<div class="logueo-inf"></div>    
+			</div>  
+			<div id="footer">
+				© Pontificia Universidad Católica del Perú - 2012. <span>All rights reserved.</span><br>
+				Av. Universitaria 1801, San Miguel, Lima 32, Perú | <span>Phone</span> (511) 626-2000
+			</div>
+		</div>
+	
+
+</body></html>

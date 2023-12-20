@@ -1,0 +1,25 @@
+/* PUCP Intranet II style sheet */
+
+/* Define colores, letras y otros attributos de estilo  */
+
+/* tablas */
+.pucpCeldaGrisPreins {font-family: Arial; font-size: 9pt ; color: blue; background: Gainsboro;}
+
+.pucpCeldaPreins {font-family: Arial; font-size: 8pt ; background: Gainsboro;}
+
+/* Links */
+.pucpLinkPortalPreins  {font-family: Tahoma; font-size: 10pt; text-decoration: none; color:  #993300;}
+
+/* Titulos */
+/* .pucpTituloPortal {font-family: Arial; font-size: 20pt; font-weight: bold; color:  #2C7D92;}	 */
+.pucpTituloPortal {font-family: Arial; font-size: 19pt; color:  #2C7D92;}
+.pucpDescripcionEnlace {font-family: Arial; font-size: 9pt;}
+.pucpTituloEnlace {font-family: Arial; font-size: 9pt; font-weight: bold;}
+.pucpTituloEventosPortal {font-family: Arial; font-size: 9pt; font-weight: bold;}
+.pucpSubtituloEventoPortal {font-family: Arial; font-size: 8pt;}
+.pucpDescripcionEventoPortal {font-family: Arial; font-size: 8pt;}
+
+
+
+
+

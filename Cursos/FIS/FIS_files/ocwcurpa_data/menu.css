@@ -1,0 +1,48 @@
+/* PUCP Intranet II style sheet Documentos Curso */
+/* links */
+/* Disponibles */
+.mDirecD {font-family: Arial; font-size: 9pt; text-decoration: none; color: black;}
+.mArchD  {font-family: Arial; font-size: 9pt; text-decoration: none; color: black;}
+.mLinkD  {font-family: Arial; font-size: 9pt; text-decoration: none; color: black;}
+
+/* Bloqueado */
+.mDirecB {font-family: Arial; font-size: 9pt; font-style: italic; text-decoration: none; color: black;}
+.mArchB  {font-family: Arial; font-size: 9pt; font-style: italic; text-decoration: none; color: black;}
+.mLinkB  {font-family: Arial; font-size: 9pt; font-style: italic; text-decoration: none; color: black;}
+
+/* Eliminado */
+.mDirecE {font-family: Arial; font-size: 9pt; text-decoration: none; color: red;}
+.mArchE  {font-family: Arial; font-size: 9pt; text-decoration: none; color: red;}
+.mLinkE  {font-family: Arial; font-size: 9pt; text-decoration: none; color: red;}
+
+/* Por aprobar */
+.mDirecP {font-family: Arial; font-size: 9pt; text-decoration: none; color: green;}
+.mArchP  {font-family: Arial; font-size: 9pt; text-decoration: none; color: green;}
+.mLinkP  {font-family: Arial; font-size: 9pt; text-decoration: none; color: green;}
+
+/* Rechazado */
+.mDirecH {font-family: Arial; font-size: 9pt; text-decoration: line-through; color: brown;}
+.mArchH  {font-family: Arial; font-size: 9pt; text-decoration: line-through; color: brown;}
+.mLinkH  {font-family: Arial; font-size: 9pt; text-decoration: line-through; color: brown;}
+
+/* Seleccionado */
+.mSelec	 {font-family: Arial;	font-size: 9pt;	color: #841212; background-color: #fff0c0;}
+
+/* menu */
+.itemBorder { border: 1px solid #2C7D92}
+.itemText { text-decoration: none; color: #FFFFFF; font-family: Arial; font-size: 8pt; }
+
+/* extras */
+a.mDirecD:hover	{
+	font-family: Arial;
+	font-size: 9pt;
+	color: #841212;
+	background-color: #fff0c0;
+}
+
+a.mArchD:hover	{
+	font-family: Arial;
+	font-size: 9pt;
+	color: #841212;
+	background-color: #fff0c0;
+}

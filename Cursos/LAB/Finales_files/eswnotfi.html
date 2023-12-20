@@ -1,0 +1,786 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="eswnotfi_data/pucp.css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Oracle JDeveloper">
+
+<script language="JavaScript1.2" src="pucp.js"> </script> 
+
+<script language="JavaScript" src="eswnotfi_data/diagram.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<table class="pucptablamenu" width="100%" border="0">
+  <tbody><tr>
+    <td width="78%"></td>
+    <td><p align="RIGHT"> 
+      <button type="button" onmouseout="self.status = ''; return true" onclick="javascript:history.back()" onmouseover="self.status='Regresar'; return true" class="pucpBoton pucpBotonCorto">Regresar</button></p></td> 
+  </tr>
+</tbody></table>
+
+
+
+
+<table border="0" width="100%">
+	<tbody><tr>
+		<td class="pucpTitulo">Estadísticas de Notas Finales</td>
+		<td height="20" colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="pucpTitulo">LABORATORIO DE FÍSICA 1&nbsp;2023-2</td>
+		<td height="22" colspan="2"><font size="2">&nbsp;</font></td>
+	</tr>
+</tbody></table>
+
+	<table border="0" width="100%">
+		<tbody><tr>
+  		<td width="2%" class="pucpCelda"><span class="pucpInfReg">Facultad:</span></td>
+	  	<td width="65%" class="pucpCelda">&nbsp;ESTUDIOS GENERALES CIENCIAS</td>
+      
+
+			
+		</tr>
+	</tbody></table>
+
+<br>
+
+<p>
+      
+   <table border="0" width="100%">
+   <tbody><tr>
+		<td colspan="7" class="pucpTablaSubTitulo"><font color="white">Distribución de notas numéricas</font></td>
+	 </tr>
+   <tr>
+   <td class="pucpCeldaTitulo" align="center">Tipo de Nota</td>
+   <td class="pucpCeldaTitulo" align="center">Cantidad</td>
+   <td class="pucpCeldaTitulo" align="center">Media</td>
+   <td class="pucpCeldaTitulo" align="center">Desv. Est.</td>
+   <td class="pucpCeldaTitulo" align="center">Mediana</td>
+   <td class="pucpCeldaTitulo" align="center">Minimo</td>
+   <td class="pucpCeldaTitulo" align="center">Maximo</td>
+   </tr>      
+
+            <tr>
+            <td width="12%" class="pucpCelda" align="right">Normal</td>
+            <td width="12%" class="pucpCelda" align="right">974</td>
+            <td width="12%" class="pucpCelda" align="right">13.1</td>
+            <td width="12%" class="pucpCelda" align="right">1.8</td>
+            <td width="12%" class="pucpCelda" align="right">13</td>
+            <td width="12%" class="pucpCelda" align="right">4.0</td>
+            <td width="12%" class="pucpCelda" align="right">18.0</td>
+            </tr>
+
+            
+</tbody></table>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="pucpTablaTitulo">
+	<tbody><tr>
+		<td width="40%" height="300" align="center"><iframe frameborder="0" scrolling="no" width="400" height="300" name="F1" align="middle"></iframe>
+		</td>
+		<td width="60%" height="300" align="center"><iframe frameborder="0" scrolling="no" width="720" height="300" name="F2" align="middle"></iframe>
+		</td>
+	</tr>
+</tbody></table>
+
+<script>
+	var P=new Array();
+	var cuenta;
+	var i, j, jsPorc, jsNCar, jsPorA, jsPorD, jsColor, jsFrec, porcAcum=0, MaxBarra;
+	
+	
+	_DiagramTarget=window.frames["F1"];
+	_DiagramTarget.document.open();
+	_DiagramTarget.document.writeln("<html><head></head><body bgcolor='#FFFFFF'>");
+	
+	_DiagramTarget=window.frames["F2"];
+	_DiagramTarget.document.open();
+	_DiagramTarget.document.writeln("<html><head></head><body bgcolor='#FFFFFF'>");
+</script>
+
+<script>
+	_DiagramTarget=window.frames["F2"];
+	var D=new Diagram();	
+	D.SetFrame(50, 30, 600, 270);
+	D.XGridDelta=1;
+	D.YGridDelta=10;
+	D.SetBorder(-1, 21, 0, 100);	
+	D.SetText("%","Notas","Distribución en %");
+	D.Font="font-family:Arial;font-weight:normal;font-size:9pt;line-height:9pt;";
+	D.Draw("#FFFFFF", "#000000", false);
+</script>
+   	
+      	<script>
+		i=0;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+      	<script>
+		i=1;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+      	<script>
+		i=2;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+      	<script>
+		i=3;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=4;
+    		jsPorc=0.1;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=4;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=5;
+    		jsPorc=0.1;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=5;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=6;
+    		jsPorc=0.5;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=6;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=7;
+    		jsPorc=0.1;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=7;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=8;
+    		jsPorc=0.7;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=8;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=9;
+    		jsPorc=1.8;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=9;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=10;
+    		jsPorc=3.0;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=10;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=11;
+    		jsPorc=9.0;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=11;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=12;
+    		jsPorc=20.8;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=12;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=13;
+    		jsPorc=23.0;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=13;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=14;
+    		jsPorc=20.0;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=14;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=15;
+    		jsPorc=12.6;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=15;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=16;
+    		jsPorc=5.9;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=16;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=17;
+    		jsPorc=2.2;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=17;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+	<!--Barras-->
+	<script>
+		i=18;
+    		jsPorc=0.1;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+		new Bar(j-13, D.ScreenY(jsPorc), j+13, D.ScreenY(0), "#000000","" , "#FFFFFF","");
+		new Bar(j-12, D.ScreenY(jsPorc)+1, j+12, D.ScreenY(0), "#FF0000","" , "#FF0000", jsPorc + "%" );
+		new Bar(600, 275, 640, 300, "#FFFFFF","Notas" , "#000000", "");
+		new Bar(40, 275, 60, 300, "#FFFFFF","" , "#000000", "");
+		new Bar(585, 275, 600, 300, "#FFFFFF","" , "#000000", "");
+	</script>
+
+      	<script>
+		i=18;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+      	<script>
+		i=19;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	
+      	<script>
+		i=20;
+		_DiagramTarget=window.frames["F2"];	
+		j=D.ScreenX(i);
+	      	
+      	</script>
+      	 <!-- fin while -->
+	 
+	<script>
+		//Pie
+		jsPorA = 93.6;
+		jsPorD = Math.round((100 - jsPorA)*10)/10;
+		_DiagramTarget=window.frames["F1"];		
+		P[1]=new Pie(150,150,0,90,0*3.6,jsPorA*3.6,"#0000FF","Aprobados : "+jsPorA + "%");
+		P[2]=new Pie(150,150,0,90,jsPorA*3.6,100*3.6,"#FF0000","Desaprobados : "+jsPorD + "%");
+
+		new Bar(250,195,400,210,"#FFFFFF","Aprob. " + jsPorA + "%","#0000FF","");
+		new Bar(250,215,400,230,"#FFFFFF","Desap. " + jsPorD + "%","#FF0000","");
+		
+	</script>
+
+	<script>
+		_DiagramTarget=window.frames["F1"];
+		_DiagramTarget.document.writeln("</body></html>");
+		_DiagramTarget.document.close();
+
+		_DiagramTarget=window.frames["F2"];
+		_DiagramTarget.document.writeln("</body></html>");
+		_DiagramTarget.document.close();
+	</script>	 
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p><br></p>
+<center>
+<table border="0" width="100%" height="1">
+<tbody><tr>
+<td class="pucpCeldaTitulo" align="center">Nota</td>
+<td class="pucpCeldaTitulo" align="center">Frecuencia</td>
+<td class="pucpCeldaTitulo" align="center">Porcentaje</td>
+<td class="pucpCeldaTitulo" align="center">Porcentaje Acumulado</td>
+</tr>
+
+<tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">18</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">1</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">0.1</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">0.1</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">17</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">21</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">2.2</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">2.3</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">16</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">57</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">5.9</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">8.1</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">15</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">123</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">12.6</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">20.7</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">14</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">195</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">20.0</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">40.8</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">13</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">224</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">23.0</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">63.8</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">12</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">203</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">20.8</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">84.6</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">11</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">88</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">9.0</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">93.6</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">10</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">29</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">3.0</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">96.6</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">9</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">18</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">1.8</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">98.5</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">8</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">7</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">0.7</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">99.2</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">7</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">1</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">0.1</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">99.3</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">6</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">5</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">0.5</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">99.8</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCelda"><p align="RIGHT">5</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">1</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">0.1</p></td>
+         <td width="20%" class="pucpCelda"><p align="RIGHT">99.9</p></td>
+         </tr>
+
+         <tr>
+
+         <td width="10%" class="pucpCeldaGris"><p align="RIGHT">4</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">1</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">0.1</p></td>
+         <td width="20%" class="pucpCeldaGris"><p align="RIGHT">100.0</p></td>
+         </tr>
+
+         <tr>
+
+   	  <td width="10%" class="pucpCeldaTotal">TOTAL</td>
+   	  <td width="20%" class="pucpCeldaTotal" align="RIGHT">974</td>
+   	  <td width="20%" class="pucpCeldaTotal" align="RIGHT">100.0</td>
+      <td width="20%" class="pucpCeldaTotal">&nbsp;</td>
+   	  </tr>
+   	  </tbody></table>
+      </center>
+
+
+<p></p>
+  <center>
+  <table border="0" width="37%">
+	<tbody><tr>
+		<td align="CENTER" colspan="2" class="pucpTablaSubTitulo"><font color="white">Distribución de notas por tipo de nota final</font></td>
+	</tr>
+	<tr>
+	<td class="pucpCeldaTitulo" align="center">Tipo de Nota</td>
+	<td class="pucpCeldaTitulo" align="center">Cantidad</td>
+	</tr>
+
+
+	 	 <tr>
+		 <td width="59% " class="pucpCelda"><p align="LEFT"><font size="1" face="Arial">NORMAL</font></p></td>
+		 <td width="41%" class="pucpCelda"><p align="RIGHT"><font size="1" face="Arial">974</font></p></td>
+		 </tr>
+
+
+
+	 	 <tr>
+		 <td width="59% " class="pucpCeldaGris"><p align="LEFT"><font size="1" face="Arial">RETIRADO</font></p></td>
+		 <td width="41%" class="pucpCeldaGris"><p align="RIGHT"><font size="1" face="Arial">23</font></p></td>
+		 </tr>
+
+
+
+	 <tr>
+	 <td width="59%" class="pucpCeldaTotal" align="LEFT">TOTAL</td>
+	 <td width="41%" class="pucpCeldaTotal" align="RIGHT">997</td>
+	 </tr>
+	 </tbody></table>
+   </center>  
+
+<form name="estadistica" action="/pucp/estadist/eswnotfi/eswnotfi" method="post">
+ <input type="hidden" name="facultad" value="20">
+ <input type="hidden" name="clavecurso" value="1FIS03">
+ <input type="hidden" name="Horario" value="">
+ <input type="hidden" name="cicloano" value="2023">
+ <input type="hidden" name="ciclo" value="02">
+ <input type="hidden" name="tipociclo" value="00">
+<input type="hidden" name="accion" value="Dibuja">  
+</form>
+
+<table class="pucptablamenu" width="100%" border="0">
+  <tbody><tr><td>&nbsp;</td></tr>
+  <tr>
+    <td><p align="CENTER"> 
+      <button type="button" onmouseout="self.status = ''; return true" onclick="javascript:history.back()" onmouseover="self.status='Regresar'; return true" class="pucpBoton pucpBotonCorto">Regresar</button></p></td> 
+  </tr>
+</tbody></table>
+
+
+
+
+
+
+ 
+
+
+
+
+<hr class="pucppiehr"> 
+	<div style="width: 100%;display: table;">
+		<div class="pucppiedesktop" style="width: 45%; text-align:left;">
+			<div style="width:100%">
+				<span class="pucpCampo">
+					© Pontificia Universidad Católica del Perú
+				</span><br>
+				<span class="pucpCampo">
+					Av. Universitaria 1801, San Miguel
+				</span><br>
+				<span class="pucpCampo">
+					Lima-32 PERU      Telf. (511) 6262000
+				</span><br>			
+			</div>
+		</div>		
+		<div class="divhorapucp" style="display: table-cell; text-align:center;">
+			<div style="width:100%">
+				<span class="pucpCampo" id="horapucp">
+					<a class="pucpMailLink" href="javascript:top.mostrarHoraPUCPAlt()" id="linkHora" style="display: inline-block;">Hora PUCP</a>
+					<span id="textoHora"></span>
+				</span>
+			</div>
+			<div class="pucppiemovil" style="width:100%">
+					
+				<input type="hidden" name="idConfContacto" value="null">
+				<input type="hidden" name="url__" value="/pucp/estadist/eswnotfi/jsp/AccionNotFiDibuja.jsp">				
+				<span class="pucpCampo">consultas a: <a href="https://ares.pucp.edu.pe/pucp/correo/cowcrint/cowcrint;jsessionid=0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6?accion=CrearMensaje&amp;dirPara=asistencia-dti@pucp.edu.pe&amp;dirCC=&amp;dirCCO=&amp;asunto=&amp;mensaje=" class="pucpMailLink" onmouseover="self.status = ''; return true">asistencia-dti@pucp.edu.pe</a></span>
+				
+			</div>
+			<div class="pucppiemovil" style="width:100%">
+				<span class="pucpCampo">
+					© Pontificia Universidad Católica del Perú
+				</span><br>
+				<span class="pucpCampo">
+					Av. Universitaria 1801, San Miguel
+				</span><br>
+				<span class="pucpCampo">
+					Lima-32 PERU      Telf. (511) 6262000
+				</span><br>			
+			</div>
+		</div>
+		
+		<div class="pucppiedesktop" style="width: 45%; text-align:right;">			
+			<div style="width:100%">
+				
+				<span class="pucpCampo">consultas a: <a href="https://ares.pucp.edu.pe/pucp/correo/cowcrint/cowcrint;jsessionid=0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6?accion=CrearMensaje&amp;dirPara=asistencia-dti@pucp.edu.pe&amp;dirCC=&amp;dirCCO=&amp;asunto=&amp;mensaje=" class="pucpMailLink" onmouseover="self.status = ''; return true">asistencia-dti@pucp.edu.pe</a></span>							
+				<br>
+				
+				<span class="pucpCampo">Dirección de Tecnologías de Información</span>
+			</div>			
+		</div>
+	</div>
+
+
+
+
+
+
+ 
+
+
+
+
+
+</body></html>

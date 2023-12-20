@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<!-- Nueva cabecera de CV -->
+<html style="overflow:hidden;" lang="es"><head>
+    <title>Pontificia Universidad Católica del Perú - Campus Virtual PUCP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
+    <meta http-equiv="Expires=-1" content="text/html; charset=iso-8859-1">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+		
+    <link href="Inscribete_files/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap Core CSS -->	
+    <link href="Inscribete_files/IntranetCabecera.css" rel="stylesheet"><!-- PUCP cabecera CSS -->	
+	<link href="Inscribete_files/font-awesome.min.css" rel="stylesheet"><!-- Fonts awesome-->
+	
+	<script type="text/javascript" src="Inscribete_files/jquery-1.9.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="Inscribete_files/pucp.js"></script>
+    <script language="JavaScript" type="text/javascript" src="Inscribete_files/Intranet.js"></script>      
+
+    <script src="Inscribete_files/bootstrap.min.js"></script><!-- Bootstrap Core JavaScript -->	
+	<script src="Inscribete_files/heartcode-canvasloader-min-0.9.1.js"></script><!-- CanvasLoader -->	
+	<script src="Inscribete_files/IntranetCabecera.js"></script><!-- JS pucp cabecera -->
+	<script src="Inscribete_files/pucpDisponibilidadIdioma_es.js"></script>	
+	<script src="Inscribete_files/Grupos.js"></script>
+    <script src="Inscribete_files/GruposChat.js"> </script>    
+    <script src="Inscribete_files/chatLink.js"></script>			
+	<script language="JavaScript" type="text/javascript">
+
+function login()
+{
+  var u = "";
+  var i = "";
+  var s = "";
+  var r = "";
+  var param = "";
+  var a = "Ingresar";  
+  var ruta = "/login?accion=";
+  var d, w;
+  var nw="1";
+  var logoutlogin="0";
+  var diAux = "di=es";
+  var rutaFinal = "";
+  
+  if (arguments[0] && typeof arguments[0] == "object" ) {
+    for(var n in arguments[0]) {
+      if (n=="r") {r=arguments[0][n];}
+      else if (n=="nw") {nw=arguments[0][n];}
+	    else if (n=="logoutlogin") {logoutlogin=arguments[0][n];}
+      else if (n=="di") { if (arguments[0][n]=="en") { diAux = "di=en"; } else if (arguments[0][n]=="pt") { diAux = "di=pt"; } }
+      else if (n=="a" && arguments[0][n]=="IngresarRNU" ) {a="IngresarRNU";}
+      else if (n=="a" && arguments[0][n]=="IngresarRDU" ) {a="IngresarRDU"; ruta = "/en?accion=";}
+	  else if (n=="a" && arguments[0][n]=="eIngresarRDU" ) {a="IngresarRDU"; ruta = "/ein?accion=";}
+      else { 
+	      param += "&" + n + "=" + (n!="u"?arguments[0][n]:arguments[0][n].replace(/\&/g, "PucpAmpersand").replace(/\?/g, "PucpQuestion")); 
+		    if (n=="s") {s=arguments[0][n];}
+		    if (n=="u") {u=arguments[0][n];}
+	    }
+    }
+    param += "&" + diAux;
+  } else {
+    if (arguments[0]) { u = arguments[0]; }
+    if (arguments[1]) { i = arguments[1]; }
+    if (arguments[2]) { s = arguments[2]; }
+    if (arguments[3]) { r = arguments[3]; }
+    param = "&u=" + u.replace(/\&/g, "PucpAmpersand").replace(/\?/g, "PucpQuestion") + "&i=" + i + "&s=" + s;
+  }
+
+  s = s.toLowerCase();  
+
+  if (a=='IngresarRNU' || a=='IngresarRDU') {
+    rutaFinal = ruta + a + param;
+    nw = "0";
+  } else if (s=='' || s=='cv') {
+    rutaFinal = '/pucp/jsp/Intranet.jsp?url=' + u.replace(/\&/g, "PucpAmpersand").replace(/\?/g, "PucpQuestion");
+    nw = "0";
+  } else if (s=='ch') {
+	
+    rutaFinal = 'http://chat.pucp.edu.pe/config/fvalidacion_chat.php?url=' + u;
+  } else if (s=='opv') {
+    nw = "0";
+
+
+
+    if (u.indexOf("https://open.pucp.edu.pe") == 0) rutaFinal = u;
+
+  } else {
+    alert('El servicio al que desea ingresar no es reconocido.');
+    rutaFinal = '/pucp/jsp/Tutorial.jsp';
+  }
+
+  if (nw == "0") { 
+    if (logoutlogin == "0") { 
+	    top.location.href = rutaFinal;
+	  } else {
+	    if (logoutlogin == "1") {
+	      if (diAux == "di=en") {
+		      if (!confirm('If you have another open session on this computer at the moment, please consider that it might be closed automatically.')) 
+		        return;
+		    } else {
+		      if (!confirm('Si en estos momentos tiene una sesión en este equipo, esta se cerrará automáticamente para crear una nueva.')) 
+		        return;
+        }
+	    } 
+    
+      if (rutaFinal.substring(0, 4) == 'http') { 
+	      top.location.href = "/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion&"+diAux+"&urlredirect="+rutaFinal;
+      } else { 
+        top.location.href = "/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion&"+diAux+"&urlredirect=https://eros.pucp.edu.pe"+rutaFinal;
+      }
+	  }
+  } else {
+    d = new Date();
+    w=window.open(rutaFinal, "login" + d.valueOf(), "location=yes,status=yes,resizable=yes,toolbar=yes,scrollbars=yes,top=0,left=0,width=790,height=520", 1 );  
+    if (r == "1") { return w; }
+  }
+}
+
+</script>		
+    <script language="JavaScript" type="text/javascript"> 
+      function getSessionId()
+      {
+        return "0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc";  
+      }
+      function cerrarSesion()
+      {
+        //top.frames['IntranetFrameInterval'].iSalir=1;
+        top.window.location.href='/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion';
+      }
+      if (window.name.substring(0, 5)=='login'
+           || document.referrer.indexOf("/pucp/procpers/ppwproce/ppwproce") != -1 )  // Inscripcion en linea de procesos.
+      { 
+        top.window.name='cv'; 
+      }
+	  $(function(){
+		var cl = new CanvasLoader('icono_espera');
+		cl.setColor('#6798a6'); // default is '#000000'
+		cl.setDiameter(72); // default is 40
+		cl.setDensity(43); // default is 40
+		cl.setRange(0.9); // default is 1.3
+		cl.setSpeed(3); // default is 2
+		cl.setFPS(25); // default is 24
+		cl.show(); // Hidden by default
+		
+		// This bit is only for positioning - not necessary
+		var loaderObj = document.getElementById("canvasLoader");
+  		loaderObj.style.position = "relative";  		
+		
+		}
+	  );
+	  
+	  function getIdiomaActual(){
+		  
+		return "es";
+	  }	  	 
+    </script>
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"></head>  
+	<body style="margin: 0;overflow: hidden;">	
+		<div id="header" role="banner"> 	
+				<div class="pucpMenuUsuario" id="menu-toggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Menu">
+					<div class="pucpTituloMenu"> MENÚ </div>
+					<div>
+						<div class="pucpBotonMenu"></div>
+						<div class="pucpBotonMenu"></div>
+						<div class="pucpBotonMenu"></div>
+					</div>
+				</div>
+
+				<div class="pucpDatosUsuario">
+
+					<p class="pucpNombreCampus"> CAMPUS VIRTUAL
+					</p>
+					<p class="pucpNombreUsuario" style="max-width: 1122.8px;">ARIAS T ANGEL</p>
+				</div>
+				
+				
+
+				<div class="pucpBotonCerrarSesion">
+					<span class="cerrar-sesion" id="cerrar-sesion" onclick="javascript:actualizarIframe.call(this,'/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion');" data-toggle="tooltip" data-placement="bottom" title="" aria-hidden="true" data-original-title="Cerrar sesión"><img id="img-logout" src="Inscribete_files/iconoLogout.png"></span>				
+				</div>
+
+				<div class="pucpLogo">
+				</div>
+		</div>   
+		
+		<div id="wrapper" style="padding: 88px 0px 0px;" class="">
+			<div id="sidebar-wrapper" role="navigation" style="height: 750px;">	
+				
+
+
+
+
+
+
+
+
+
+<ul class="sidebar-nav menuNavPrincipal">
+	
+	<li>
+		<a id="matricula" onclick="javascript:actualizarIframe('/pucp/prematri/pmwprinc/pmwprinc?accion=MostrarPortal');">Matrícula</a>
+	</li>			
+	
+	<li>
+		<a id="cursoactividades" onclick="javascript:actualizarIframe('/pucp/ocr/ocwmcurs/ocwmcurs?accion=Ingresar');">Cursos y actividades</a>
+	</li>	
+	<li>
+		<a id="agenda" onclick="javascript:actualizarIframe('/pucp/eventos/evwevnts/evwevnts?accion=IngresarMiAgenda');">Calendario personal</a>
+	</li>
+	<li>
+		<a id="documentos" onclick="javascript:expandirContraerSubMenu(1,'subdocumentos','flecha-documentos');" role="menu">Documentos<i class="fa fa-caret-right" id="flecha-documentos"></i></a>
+		<ul id="subdocumentos" class="submenu-nivel-1" style="display:none;">
+			<li>
+				<a id="docpersonal" onclick="javascript:mostrarDriveGPUCP('0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc');">Personales</a>
+			</li>
+			<li>
+				<a id="doccursacti" onclick="javascript:actualizarIframe.call(this,'/pucp/document/dowdocum/dowdocum?accion=VerCursos');">Cursos y actividades</a>
+			</li>
+			<li>
+				<a id="docfacuouni" onclick="javascript:actualizarIframe.call(this,'/pucp/pubweb/puwpubli/puwpubli?accion=IngresarADocUnidades');">Facultades y otras unidades</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a id="correo" onclick="javascript:mostrarCorreoGPUCP('0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc');">Correo</a>
+	</li>		
+	<li>
+		<a id="pagpersonal" onclick="javascript:actualizarIframe('/pucp/general/gewpealu/gewpealu?accion=ElegirPanel&amp;misdatos=1');">Página personal</a>
+	</li>
+	<li>
+		<a id="miuniversidad" onclick="javascript:expandirContraerSubMenu(1,'submiuniversidad','flecha-miuniversidad');" role="menu">Universidad<i class="fa fa-caret-right" id="flecha-miuniversidad"></i></a>
+		<ul id="submiuniversidad" class="submenu-nivel-1" style="display:none;">
+			<li>
+				<a id="personas" onclick="javascript:actualizarIframe('/pucp/general/gewpealu/gewpealu?accion=Ingresar&amp;enintranet=1');">Personas</a>
+			</li>
+			<li>
+				<a id="cursos" onclick="javascript:expandirContraerSubMenu(2,'subcursos','flecha-cursos');" role="menu">Cursos <i class="fa fa-caret-right" id="flecha-cursos"></i></a>
+				<ul id="subcursos" class="submenu-nivel-2" style="display:none;">
+				<li>
+					<a id="busqcursosreg" onclick="javascript:actualizarIframe('/pucp/ocr/ocwbucur/ocwbucur?accion=Ingresar');">Cursos regulares</a>
+				</li>
+				<li>
+					<a id="busqactividades" onclick="javascript:actualizarIframe('/pucp/procpers/ppwproce/ppwproce?accion=CursosInternet&amp;TipoProceso=001');">Actividades</a>
+				</li>
+				</ul>
+			</li>
+			<li>
+				<a id="docBusq" onclick="javascript:actualizarIframe('/pucp/pubweb/puwpubli/puwpubli?accion=Busqueda&amp;enIntranet=1');">Documentos</a>
+			</li>
+			<li>
+										
+				
+				<a id="uniacad" onclick="javascript:expandirContraerSubMenu(2,'subuniacad','flecha-uniacad');" role="menu">Unidades académicas<i class="fa fa-caret-right" id="flecha-uniacad"></i></a>
+				<ul id="subuniacad" class="submenu-nivel-2" style="display:none;">
+					
+					<li>
+						<a id="uniacad20" onclick="javascript:actualizarIframe.call(this,'/pucp/general/gewfacul/gewfacul?accion=AbrirPanel&amp;facultad=20&amp;enintranet=1');">Estudios Generales Ciencias</a>
+					</li>					
+					
+					<li>
+						<a id="uniacadvertodas" onclick="javascript:actualizarIframe.call(this,'/pucp/general/gewfacul/gewfacul?accion=Ingresar&amp;enintranet=1');">Ver todas</a>
+					</li>			
+				</ul>
+				
+			</li>
+			<li>
+			<a id="sag" onclick="javascript:actualizarIframe('/pucp/estadist/eswsagcv/eswsagcv?accion=AbrirPanel');">Estadísticas y S.A.G.</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a id="traacaalum" onclick="javascript:actualizarIframe('/pucp/solservi/sowtraca/sowtraca?accion=ListarTramites');">Trámites académicos</a>
+	</li>
+	<li>
+		<a id="servicios" onclick="javascript:actualizarIframe('/pucp/solservi/sowatenc/sowatenc?accion=Panel');">Servicios</a>
+	</li>
+	<li class="configuracion">
+		<a id="configuracion" onclick="javascript:expandirContraerSubMenu(1,'subconfiguracion','flecha-configuracion');" role="menu">Configuración/Settings<i class="fa fa-caret-right" id="flecha-solicitudes"></i></a>
+		<ul id="subconfiguracion" class="submenu-nivel-1" style="display:none;">
+			<li>
+				<a id="cambcontraseÃ±a" onclick="javascript:actualizarIframe.call(this,'/pucp/usuarios/uswclave/uswclave?accion=Ingresar');">Contraseña/Password</a>
+			</li>	
+			
+		</ul>
+	</li>	
+	<li>
+		<a id="manualuso" onclick="javascript:cargarTutorial();">Manual de ayuda</a>
+	</li>
+	<li>
+		<a id="cerrarsesion" onclick="javascript:actualizarIframe('/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion');">Cerrar sesión</a>
+	</li>
+</ul>							
+			</div>
+			<div id="page-content-wrapper" class="page-content-wrapper" style="height: 750px;">
+				<div id="fondo_icono_espera" style="display: none;">
+					<div id="icono_espera">
+										
+					<div id="canvasLoader" style="display: block; position: relative;"><canvas width="72" height="72"></canvas><canvas style="display: none;" width="72" height="72"></canvas></div></div>					
+				</div>				
+				<iframe id="frame_mid" name="frame_mid" src="/pucp/prematri/pmwprinc/pmwprinc?accion=MostrarPortal" style="width: 1488px; height: 750px; border: 0px;">
+<html><head>
+<title>Búsqueda y monitoreo de cursos</title>
+<link rel="stylesheet" type="text/css" href="../../lib/jsp/pucp.css">
+<link rel="stylesheet" type="text/css" href="/pucp/prematri/jsp/prematri.css">
+<link rel="stylesheet" type="text/css" href="/pucp/horarios/jsp/horarios.css">
+<link rel="stylesheet" type="text/css" href="/pucp/prematri/pmwmatrc/jsp/buscarHorarios.css">
+<script type="text/javascript" src="/pucp/prematri/pmwmatrc/jsp/buscarHorarios.js?ver=030322021"></script>
+<script type="text/javascript" src="/pucp/prematri/jsp/UtilAjax.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="/pucp/prematri/jsp/prematri.js"></script>
+<script language="JavaScript" type="text/javascript"> 
+    /**
+    * funcion de captura de pulsación de tecla enter
+    */ 
+    var tecla;
+    function capturaTecla(e) 
+    {   if(document.all) tecla=event.keyCode;
+        else {tecla=e.which;}
+     if(tecla==13){return false;}
+    }  
+    document.onkeydown = capturaTecla;
+    
+    /*Ir a documentos donde esta la guia del estudiante*/
+    function descGuiaEstudiante(){
+	    var session="0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc";               
+	    window.location  = "/pucp/pubweb/puwpubli/puwpubli;jsessionid="+session+"?accion=ExplorarDocumentos&indExploracion=3&clave=03&enIntranet=1";
+	    return;
+
+	}
+    var esPrematMat="0";
+</script> 
+</head>
+<body bgcolor="#ffffff" topmargin="0" marginwidth="0" marginheight="0" onload="javascript:bodyOnLoad();">
+<a name="inicio"></a>
+<form class="pucpTablaTitulo" name="filtros" method="post">
+
+<input type="hidden" name="ramaAlu" value="030">
+<input type="hidden" name="especialidadAlu" value="0">
+<input type="hidden" name="etapaAlu" value="01">
+<input type="hidden" name="codalu" value="20225944">
+<input type="hidden" name="tamanio" value="2">
+ 
+	<table class="pucpTablaTitulo" width="100%">
+	
+	     <tbody><tr>
+	     <td class="pucpTitulo">Matrícula: ARIAS TICONA, ANGEL ALEJANDRO (20225944)</td>
+	     <td align="right"><span class="pucpTitulo">Ciclo: 2024-0 </span>&nbsp;&nbsp;&nbsp;<select name="ciclo" id="ciclo" style="display:none"><option value="{&quot;cicloano&quot;:&quot;2024&quot;,&quot;tipociclo&quot;:&quot;00&quot;,&quot;ciclo&quot;:&quot;00&quot;}">2024-0</option><option value="{&quot;cicloano&quot;:&quot;2023&quot;,&quot;tipociclo&quot;:&quot;00&quot;,&quot;ciclo&quot;:&quot;02&quot;}">2023-2</option></select></td>
+	     </tr>
+	    <tr>
+	    <td class="pucpTitulo">Estudios Generales Ciencias - INGENIERÍA INFORMÁTICA PREGRADO EN EEGG O FORMACIÓN GENERAL         </td>
+	    
+	    	<td align="right"><span class="pucpTitulo">Turno: 2239 de 4546 </span>&nbsp;&nbsp;&nbsp;</td>
+	    
+	    </tr>	    
+	</tbody></table> 
+  <input type="hidden" name="session" value="0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc">	
+    <!--observacion de la condicion del alumno-->
+    <font color="red" font-size="14pt;"><b><div id="observacion"></div></b></font> 
+
+
+	<!-- 25-11-11 se agrego esta nota por lo de cursos permitidos -->
+    
+    <div id="divInfractor" style="display:none"><b><font color="red">USTED SE ENCUENTRA INFRACTOR AL PLAN DE ESTUDIOS EN LOS CURSOS RESALTADOS EN ROJO.</font></b><font color="#4866ad"> Deberá solicitar una excepción de matrícula si desea que su unidad académica evalúe su pedido. Para registrar una solicitud de excepción haga clic <b><a href="/pucp/infracto/mawexcep/mawexcep;jsessionid=0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc?accion=Ingresar&amp;codigo=20225944&amp;cicloano=2011&amp;ciclo=01&amp;tipociclo=00">aqui</a></b></font> </div> 
+	<div id="divCodictado" style="display:none"><b><font color="RED">USTED SE HA INSCRITO EN UN CURSO DE LA MODALIDAD DE CODICTADO.</font></b><font color="#4866ad"> Deberá cumplir con los requisitos señalados por la unidad académica, en caso contrario, no procederá su prematrícula, la cual se realizará luego del cierre de la etapa de inscripción o modificación de matrícula vía Campus Virtual. Para revisar los requisitos haga clic <b><a href="javascript:EnlacePopUp('/pucp/ctrlcurr/jsp/RequisitosCodictado.html',380,360)">aqui</a></b></font></div>
+	 <!--11/12/2014 AVR -->
+	<div id="divMensajeDerecho" style="display: none">    
+    <!--<span color="black" style="border-bottom: 2px solid red;" ><b>Los estudiantes deben tener presente cuales son los cursos que pertenecen a su Plan de Estudios, a fin de no cometer errores en su matrícula. Aquellos cursos que indican "solo PSE" pertenecen al plan de estudios de los Programas de Segunda Especialidad (solo para Abogados y Bachilleres).</b></span>-->
+    <br>
+    <b><font color="red">IMPORTANTE:</font><font color="black">Los estudiantes deben tener presente cuales son los cursos que pertenecen a su Plan de Estudios, a fin de no cometer errores en su matrícula. Aquellos cursos que indican "solo PSE" pertenecen al plan de estudios de los Programas de Segunda Especialidad (solo para Abogados y Bachilleres).</font></b>
+    </div>
+     <!--24/02/2015 AVR -->
+     
+	 
+	 
+    <br>
+    <!--informacion general --> 
+    <b><div id="cuadroInformativo"><table width="100%"><tbody><tr class="pucpCeldaGrisPreins"><td>Cursos Inscritos: 2</td><td>Créditos Inscritos: 7.5</td><td>Cursos Prematriculados: 0</td><td>Créditos Prematriculados: 0</td></tr></tbody></table></div></b>
+     <table width="100%">
+    <tbody><tr>
+	    <td width="35%" class="pucpCelda">
+	      <font size="2"><b>Inscripción registrada:</b></font>
+	    </td>
+	    <td width="57%" class="pucpCelda" align="right"><a href="javascript:mostrarHorarioInscripcion()">Horario de cursos seleccionados</a>
+	    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#BusquedaCursos">Búsqueda de Cursos</a></td>
+	    <td width="8%"><div id="botonGrabarArriba" align="right" style="display: block;"><button type="button" onclick="javascript:grabarOnClick()" class="pucpBoton pucpBotonCorto" onmouseover="self.status = ''; return true">Grabar</button></div></td>
+	</tr>
+	</tbody></table>
+	<!-- imagen de carga para los cursos inscritos -->
+	<div id="loadingCursosIns" style="float: left; margin-left: 5px; display: none;">
+			<img src="/pucp/eventos/jsp/images/cargando.gif">
+			<span style="vertical-align:35%">Cargando...</span>
+	</div>
+	<!-- imagen de carga para los cursos inscritos -->
+	<div id="loadingGrabar" style="float:left;margin-left: 5px;display:none">
+			<img src="/pucp/eventos/jsp/images/loading_small.gif">
+			<span style="vertical-align:35%">Cargando...</span>
+	</div>
+    <!-- cursos inscritos -->
+    <div id="cursosInscritos" style="display: block;"><table width="100%" class="pucpTablaTitulo"><tbody><tr class="pucpCeldaTitulo"><td>Clave</td><td>Nombre del Curso</td><td>Créd.</td><td>Eliminar</td><td>Tipo</td><td>Horario</td><td><a class="pucpCeldaTitulo" href="javascript:AbreVentanaNueva('/pucp/prematri/jsp/html/LeyendaEstado.htm',0,450,350)">Estado</a></td><td><a class="pucpCeldaTitulo" href="javascript:AbreVentanaNueva('/pucp/prematri/jsp/html/LeyendaPosRelativa.htm',0,450,350)">Posic. Relat.</a></td><td>Docentes</td><td>Sesiones</td></tr><tr class="pucpCeldaPreins"><td rowspan="4">1FIS02</td><td rowspan="4">FÍSICA 1</td><td rowspan="4">4.5</td><td><input type="checkbox" name="cursosEliminar" value="1FIS02T0202" id="cursosEliminar"></td><td>CLA</td><td>0202</td><td>Inscrito</td><td>39/64</td><td>Gonzales, F</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C</td></tr><tr class="pucpCeldaPreins"><td></td><td>PRA</td><td>0202</td><td>Inscrito</td><td>--</td><td>--</td><td>VIE 14:00-16:00 P</td></tr><tr class="pucpCeldaPreins"><td></td><td>DIR</td><td>0202</td><td>Inscrito</td><td>--</td><td>--</td><td>MIE 14:00-16:00 Q</td></tr><tr class="pucpCeldaPreins"><td></td><td>EXA</td><td>0202</td><td>Inscrito</td><td>--</td><td>Gonzales, F</td><td>LUN 14:00-17:00 E</td></tr><tr class="pucpCeldaPreins"><td rowspan="3">1INF01</td><td rowspan="3">FUNDAMENTOS DE PROGRAMACIÓN</td><td rowspan="3">3</td><td><input type="checkbox" name="cursosEliminar" value="1INF01T0322" id="cursosEliminar"></td><td>CLA</td><td>0322</td><td>Inscrito</td><td>27/55</td><td>Vargas, S</td><td>LUN 10:00-13:00 C <br>MIE 10:00-12:00 C</td></tr><tr class="pucpCeldaPreins"><td></td><td>LAB</td><td>0322</td><td>Inscrito</td><td>--</td><td>--</td><td>MAR 10:00-12:00 K <br>JUE 10:00-12:00 K</td></tr><tr class="pucpCeldaPreins"><td></td><td>EXA</td><td>0322</td><td>Inscrito</td><td>--</td><td>Vargas, S</td><td>MAR 10:00-13:00 E</td></tr></tbody></table></div>
+    <div align="right"><button type="button" onclick="javascript:grabarOnClick()" class="pucpBoton pucpBotonCorto" onmouseover="self.status = ''; return true">Grabar</button></div>
+   <!-- Para incluir la validacion de vacante condicionada de un alumno 
+      Por: Israel Aguirre 
+      Fecha: 08-06-2015 -->
+      <div id="msgvacantecondicionada"></div>
+  
+     
+  
+  <!-- Fin de incluir la validacion de vacante condicionada de un alumno --> 
+   <!--
+     Se retira informacion a pedido de OCR
+     Fecha: 10-07-2015
+     Por: Israel Aguirre
+     <font color="#4866ad">(*) La Posición Relativa indica la ubicación del alumno con respecto a los otros alumnos inscritos en el horario considerando las vacantes por las cuales compite y es calculada según los datos registrados hasta el <div id="fechaInformativa"></div>
+   -->
+   	<font color="#4866ad">Es responsabilidad del alumno revisar las normas contenidas en la Guía del estudiante. 
+	Para revisar la Guía del estudiante haga clic<b><i><a href="javascript:descGuiaEstudiante();"> aquí</a></i></b>
+	</font>
+    <a name="errores"></a>
+    <div id="mensajeCursosInscritos"></div>
+    <div id="mensajeResul" style="display:none">
+    	  <table class="pucpCuadroAgrupamiento" width="100%">
+    	  	<tbody><tr><td><img src="/pucp/prematri/jsp/images/alert_mini.png"><font color="RED">&nbsp;&nbsp;&nbsp;&nbsp;<b>ERRORES en la Inscripción</b></font></td></tr>   	  	
+    	  	<tr><td><div id="mensajeGrabar" style="display: none;"> </div></td></tr>   	  	
+    	  </tbody></table>
+    </div>
+    <br> 
+	<a name="BusquedaCursos"></a>
+    <table class="pucpTablaSubTitulo" width="100%" style="" id="TablaBusqueda">
+  	<tbody><tr>
+   	 <td class="pucpSubTitulo">Búsqueda de cursos para modificar la Inscripción</td>
+  	</tr>
+	</tbody></table>
+	
+	<!-- Agregar mensaje coordinado con OCR
+     Por: Israel Aguirre
+     Fecha: 16/07/2015 -->
+  
+  <table class="pucpTablaInfo" cellspacing="0" cellpadding="0" width="100%">  
+    <tbody>
+	  <tr>
+        <td width="2%">&nbsp;</td>
+		<td class="pucpInfo" width="96%"><img src="/pucp/lib/images/i_info.gif">&nbsp;<b>Importante:</b>&nbsp;Debe tener presente que: 
+			<ul>
+			  <li>Los cursos de idiomas y aquellos que se han registrado 0 (cero) vacantes, no se muestran.</li>
+			  <li>Al realizar una búsqueda por unidad académica - especialidad solo se mostrarán aquellos cursos que pertenezcan a un plan de estudios vigente de la especialidad.</li>
+			  <li>¿Tiene sesiones virtuales?: El curso-horario tiene registrado sesiones virtuales definidas por la unidad académica. Para saber cuáles son haga clic en la lupa.</li>
+			</ul>
+		</td>
+		<td width="2%">&nbsp;</td>
+      </tr>
+	</tbody>
+  </table>
+  
+<!-- Fin de agregar mensaje coordinado con OCR -->
+    <table id="busqueda" width="100%" style="">
+        <tbody><tr>
+            <td width="130px" class="pucpCelda"><font class="pucpEtiq">Unidad Académica </font></td>
+            <td class="pucpCelda" width="auto"><select name="facultad" id="facultad" onchange="javascript:facultadChange()"><option value="false">- Seleccione una facultad -</option><option value="22">CICLO INICIAL</option><option value="10">ESCUELA DE POSGRADO</option><option value="20">ESTUDIOS GENERALES CIENCIAS</option><option value="18">ESTUDIOS GENERALES LETRAS</option><option value="78">ARQUITECTURA Y URBANISMO</option><option value="26">ARTE Y DISEÑO</option><option value="CR">ARTES ESCÉNICAS</option><option value="13">CIENCIAS CONTABLES</option><option value="12">CIENCIAS E INGENIERIA</option><option value="14">CIENCIAS SOCIALES</option><option value="21">CIENCIAS Y ARTES DE LA COMUN.</option><option value="15">DERECHO</option><option value="16">EDUCACION</option><option value="DH">GASTRONOMÍA, HOTELERÍA Y TURISMO</option><option value="77">GESTIÓN Y ALTA DIRECCIÓN</option><option value="17">LETRAS Y CIENCIAS HUMANAS</option><option value="DB">PSICOLOGÍA</option></select></td></tr>
+        <tr>
+            <td class="pucpCelda"><font class="pucpEtiq">Especialidad </font></td>
+            <td class="pucpCelda"><select id="especialidad" name="especialidad"><option value="false">------------</option><option value="{&quot;rama&quot;:&quot;021&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">ESTADÍSTICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;022&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">FÍSICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;252&quot;,&quot;especialidad&quot;:&quot;1&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA AMBIENTAL Y SOSTENIBLE - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;031&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA BIOMÉDICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;025&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA CIVIL - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;093&quot;,&quot;especialidad&quot;:&quot;1&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA DE LAS TELECOMUNICACIONES - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;028&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA DE MINAS - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;029&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA ELECTRÓNICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;190&quot;,&quot;especialidad&quot;:&quot;1&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA GEOLÓGICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;026&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA INDUSTRIAL - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;030&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA INFORMÁTICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;027&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA MECÁNICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;027&quot;,&quot;especialidad&quot;:&quot;5&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA MECATRÓNICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;259&quot;,&quot;especialidad&quot;:&quot;1&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">INGENIERÍA QUÍMICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;023&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">MATEMÁTICAS - PREGRADO EN EEGG O FORMACIÓN GENERAL</option><option value="{&quot;rama&quot;:&quot;024&quot;,&quot;especialidad&quot;:&quot;0&quot;,&quot;etapa&quot;:&quot;01&quot;,&quot;facultad&quot;:&quot;20&quot;}">QUÍMICA - PREGRADO EN EEGG O FORMACIÓN GENERAL</option></select></td></tr>
+        <tr>
+            <td class="pucpCelda"><font class="pucpEtiq">Cursos </font></td>
+            <td class="pucpCelda"><input class="pucpCampo" type="text" maxlength="70" size="50" name="clave" id="clave">&nbsp;&nbsp;Ejm: INF234 MAT117</td></tr>
+        <tr>
+            <td class="pucpCelda"><font class="pucpEtiq">Nombre del Curso</font> </td>
+            <td class="pucpCelda"><input class="pucpCampo" type="text" size="50" name="nombre" id="nombre"></td></tr>
+        <tr>
+            <td></td>
+            <td>
+        <button type="button" onclick="javascript:formularioBusquedaSubmit()" onmouseover="self.status = ''; return true" class="pucpBoton pucpBotonCorto">Buscar</button>
+                </td>
+            </tr>
+    </tbody></table>
+
+	<div id="loading" style="float: left; margin-left: 5px; display: none;">
+			<img src="/pucp/eventos/jsp/images/loading_small.gif">
+			<span style="vertical-align:35%">Cargando...</span>
+	</div>
+	 <div id="avisoDataLista" style="display: none;">
+    <br>
+        <table>
+            <tbody><tr>
+                <td id="avisoDataListaTitulo" width="100%" align="center" class="pucpTitulo"></td>
+                 <td id="avisoDataListaMensaje" width="100%" align="center" class="pucpTitulo"></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div id="avisoResultados" style="display: none;">
+    <br>
+        <table>
+            <tbody><tr>
+                <td id="avisoResultadosTitulo" width="100%" align="center" class="pucpTitulo"></td>
+                 <td id="avisoResultadosMensaje" width="100%" align="center" class="pucpTitulo"></td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div id="aviso1" class="alert" style="width:400px;display:none">
+        <table>
+            <tbody><tr>
+                <td rowspan="2" valign="top"><img src="/pucp/prematri/jsp/images/alert_mini.png"></td>
+                <td id="aviso1Titulo" class="title"></td>
+            </tr>
+            <tr><td id="aviso1Mensaje" class="body"></td></tr>
+        </tbody></table>
+    </div>
+    <div id="container" class="data" display="none" style="display: block;"><table class="pucpTablaTitulo" width="100%"><tbody><tr class="pucpCeldaTitulo"><td>Clave</td><td>Nombre del Curso</td><td>Créd.</td><td>Agregar</td><td>Tipo</td><td>Horario</td><td>Hor. Aso.</td><td>Vac.</td><td>Vac.Unid</td><td>Ins.</td><td>Mat.</td><td>Docentes</td><td>Sesiones</td><td>¿Tiene sesiones virtuales?</td></tr><tr><td><b>Nivel: 0</b></td></tr><tr class="pucpCeldaGris"><td rowspan="2">CDR123</td><td rowspan="2">PENSAMIENTO CRISTIANO Y REALIDAD SOCIAL</td><td rowspan="2">3.5</td><td><input type="checkbox" name="cursosAgregar" value="CDR123T0226" id="cursosAgregar"></td><td>CLA</td><td>0226 </td><td></td><td>60</td><td>60</td><td>76</td><td></td><td>Castro, J</td><td>LUN 11:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 11:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="CDR123T0227" id="cursosAgregar"></td><td>CLA</td><td>0227 </td><td></td><td>60</td><td>60</td><td>67</td><td></td><td>Rabi, R</td><td>LUN 11:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 11:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="1">1CDR01</td><td rowspan="1">CULTURA Y CRISTIANISMO</td><td rowspan="1">3.5</td><td><input type="checkbox" name="cursosAgregar" value="1CDR01T0228" id="cursosAgregar"></td><td>CLA</td><td>0228 </td><td></td><td>60</td><td>60</td><td>59</td><td></td><td>Caviglia, A</td><td>LUN 11:00-13:00 C <br>MAR 11:00-13:00 C <br>MIE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="3">1PSI02</td><td rowspan="3">MOTIVACIÓN Y LIDERAZGO PERSONAL</td><td rowspan="3">2</td><td><input type="checkbox" name="cursosAgregar" value="1PSI02T0291" id="cursosAgregar"></td><td>CLA</td><td>0291 </td><td></td><td>60</td><td>60</td><td>70</td><td></td><td>Mejia, G</td><td>JUE 08:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1PSI02T0292" id="cursosAgregar"></td><td>CLA</td><td>0292 </td><td></td><td>60</td><td>60</td><td>19</td><td></td><td>Maravi, I</td><td>JUE 08:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1PSI02T0293" id="cursosAgregar"></td><td>CLA</td><td>0293 </td><td></td><td>60</td><td>60</td><td>5</td><td></td><td>Goicochea, K</td><td>JUE 08:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="3">1PSI04</td><td rowspan="3">PSICOLOGÍA</td><td rowspan="3">3</td><td><input type="checkbox" name="cursosAgregar" value="1PSI04T0391" id="cursosAgregar"></td><td>CLA</td><td>0391 </td><td></td><td>60</td><td>60</td><td>73</td><td></td><td>Bendezu, A</td><td>LUN 07:00-10:00 C <br>MIE 08:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1PSI04T0392" id="cursosAgregar"></td><td>CLA</td><td>0392 </td><td></td><td>60</td><td>60</td><td>6</td><td></td><td>Tintaya, M</td><td>LUN 07:00-10:00 C <br>MIE 08:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1PSI04T0393" id="cursosAgregar"></td><td>CLA</td><td>0393 </td><td></td><td>60</td><td>60</td><td>31</td><td></td><td>Lam, L</td><td>LUN 07:00-10:00 C <br>MIE 08:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="2">1SOC01</td><td rowspan="2">SOCIOLOGÍA</td><td rowspan="2">3</td><td><input type="checkbox" name="cursosAgregar" value="1SOC01T0451" id="cursosAgregar"></td><td>CLA</td><td>0451 </td><td></td><td>60</td><td>60</td><td>50</td><td></td><td>Mendoza, M</td><td>LUN 14:00-17:00 C <br>MIE 14:00-16:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1SOC01T0452" id="cursosAgregar"></td><td>CLA</td><td>0452 </td><td></td><td>60</td><td>60</td><td>2</td><td></td><td>Ramirez, L</td><td>LUN 14:00-17:00 C <br>MIE 14:00-16:00 C </td><td>No</td></tr><tr><td><b>Nivel: 1</b></td></tr><tr class="pucpCeldaGris"><td rowspan="1">1FIS01</td><td rowspan="1">FUNDAMENTOS DE FÍSICA</td><td rowspan="1">3.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS01T0101" id="cursosAgregar"></td><td>CLA</td><td>0101 </td><td></td><td>64</td><td>64</td><td>63</td><td></td><td>Canchos, V</td><td>LUN 14:00-16:00 C <br>MIE 14:00-17:00 C <br>VIE 14:00-16:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="2">1MAT04</td><td rowspan="2">ÁLGEBRA MATRICIAL Y GEOMETRÍA ANALÍTICA</td><td rowspan="2">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1MAT04T0101" id="cursosAgregar"></td><td>CLA</td><td>0101 </td><td></td><td>64</td><td>64</td><td>48</td><td></td><td>Barrantes, E</td><td>LUN 07:00-10:00 C <br>MAR 07:00-10:00 C <br>JUE 07:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT04T0102" id="cursosAgregar"></td><td>CLA</td><td>0102 </td><td></td><td>64</td><td>64</td><td>7</td><td></td><td>Flores, M</td><td>LUN 07:00-10:00 C <br>MAR 07:00-10:00 C <br>JUE 07:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="2">1MAT05</td><td rowspan="2">FUNDAMENTOS DE CÁLCULO</td><td rowspan="2">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1MAT05T0101" id="cursosAgregar"></td><td>CLA</td><td>0101 </td><td></td><td>64</td><td>64</td><td>16</td><td></td><td>Farfan, J</td><td>LUN 10:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT05T0102" id="cursosAgregar"></td><td>CLA</td><td>0102 </td><td></td><td>64</td><td>64</td><td>50</td><td></td><td>Flores, J</td><td>LUN 10:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="1">1QUI01</td><td rowspan="1">QUÍMICA 1</td><td rowspan="1">3.5</td><td><input type="checkbox" name="cursosAgregar" value="1QUI01T0102" id="cursosAgregar"></td><td>CLA</td><td>0102 </td><td></td><td>64</td><td>64</td><td>83</td><td></td><td>Montenegro, F</td><td>LUN 14:00-16:00 C <br>MIE 14:00-17:00 C <br>VIE 14:00-16:00 C </td><td>No</td></tr><tr><td><b>Nivel: 2</b></td></tr><tr class="pucpCeldaGris"><td rowspan="3">1FIL01</td><td rowspan="3">CIENCIA Y FILOSOFÍA</td><td rowspan="3">3</td><td><input type="checkbox" name="cursosAgregar" value="1FIL01T0208" id="cursosAgregar"></td><td>CLA</td><td>0208 </td><td></td><td>60</td><td>60</td><td>37</td><td></td><td>Orozco, R</td><td>LUN 10:00-13:00 C <br>MIE 11:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIL01T0209" id="cursosAgregar"></td><td>CLA</td><td>0209 </td><td></td><td>60</td><td>60</td><td>69</td><td></td><td>Merino, R</td><td>LUN 10:00-13:00 C <br>MIE 11:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIL01T0210" id="cursosAgregar"></td><td>CLA</td><td>0210 </td><td></td><td>60</td><td>60</td><td>69</td><td></td><td>Mendoza, C</td><td>MAR 10:00-13:00 C <br>JUE 11:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="3">1FIS02</td><td rowspan="3">FÍSICA 1</td><td rowspan="3">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS02T0201" id="cursosAgregar"></td><td>CLA</td><td>0201 </td><td></td><td>64</td><td>64</td><td>81</td><td></td><td>Galvez, G</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS02T0202" id="cursosAgregar"></td><td>CLA</td><td>0202 </td><td></td><td>64</td><td>64</td><td>85</td><td></td><td>Gonzales, F</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS02T0203" id="cursosAgregar"></td><td>CLA</td><td>0203 </td><td></td><td>64</td><td>64</td><td>87</td><td></td><td>Miranda, J</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="2">1FIS03</td><td rowspan="2">LABORATORIO DE FÍSICA 1</td><td rowspan="2">.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS03L0271" id="cursosAgregar"></td><td>LAB</td><td>0271 </td><td></td><td>40</td><td>40</td><td>44</td><td></td><td></td><td>MAR 07:00-09:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS03L0272" id="cursosAgregar"></td><td>LAB</td><td>0272 </td><td></td><td>40</td><td>40</td><td>56</td><td></td><td></td><td>MAR 09:00-11:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="4">1ING02</td><td rowspan="4">DIBUJO EN INGENIERÍA</td><td rowspan="4">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1ING02T0221" id="cursosAgregar"></td><td>CLA</td><td>0221 </td><td></td><td>50</td><td>50</td><td>60</td><td></td><td>Sicha, A</td><td>LUN 07:00-10:00 C2<br>MIE 07:00-10:00 C2</td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1ING02T0222" id="cursosAgregar"></td><td>CLA</td><td>0222 </td><td></td><td>55</td><td>55</td><td>13</td><td></td><td>Quevedo, F</td><td>LUN 07:00-10:00 C2<br>MIE 07:00-10:00 C2</td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1ING02T0223" id="cursosAgregar"></td><td>CLA</td><td>0223 </td><td></td><td>55</td><td>55</td><td>40</td><td></td><td>Rodriguez, R</td><td>LUN 07:00-10:00 C2<br>MIE 07:00-10:00 C2</td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1ING02T0224" id="cursosAgregar"></td><td>CLA</td><td>0224 </td><td></td><td>45</td><td>45</td><td>3</td><td></td><td>Rojas, J</td><td>LUN 07:00-10:00 C2<br>MIE 07:00-10:00 C2</td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="2">1LIN16</td><td rowspan="2">TRABAJO ACADÉMICO</td><td rowspan="2">3</td><td><input type="checkbox" name="cursosAgregar" value="1LIN16T0208" id="cursosAgregar"></td><td>CLA</td><td>0208 </td><td></td><td>60</td><td>60</td><td>47</td><td></td><td>Fernandez, L</td><td>LUN 14:00-17:00 C <br>MIE 14:00-16:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1LIN16T0209" id="cursosAgregar"></td><td>CLA</td><td>0209 </td><td></td><td>60</td><td>60</td><td>72</td><td></td><td>Cordova, P</td><td>LUN 14:00-17:00 C <br>MIE 14:00-16:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="3">1MAT06</td><td rowspan="3">CÁLCULO DIFERENCIAL</td><td rowspan="3">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1MAT06T0201" id="cursosAgregar"></td><td>CLA</td><td>0201 </td><td></td><td>64</td><td>64</td><td>75</td><td></td><td>Crisostomo, J</td><td>LUN 10:00-13:00 C <br>MIE 10:00-13:00 C <br>VIE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT06T0202" id="cursosAgregar"></td><td>CLA</td><td>0202 </td><td></td><td>64</td><td>64</td><td>74</td><td></td><td>Diaz, W</td><td>LUN 10:00-13:00 C <br>MIE 10:00-13:00 C <br>VIE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT06T0203" id="cursosAgregar"></td><td>CLA</td><td>0203 </td><td></td><td>64</td><td>64</td><td>77</td><td></td><td>Saravia, N</td><td>LUN 10:00-13:00 C <br>MIE 10:00-13:00 C <br>VIE 10:00-13:00 C </td><td>No</td></tr><tr><td><b>Nivel: 3</b></td></tr><tr class="pucpCeldaGris"><td rowspan="4">1FIS04</td><td rowspan="4">FÍSICA 2</td><td rowspan="4">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS04T0301" id="cursosAgregar"></td><td>CLA</td><td>0301 </td><td></td><td>64</td><td>64</td><td>82</td><td></td><td>Zegarra, K</td><td>LUN 14:00-17:00 C <br>MIE 14:00-17:00 C <br>VIE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS04T0302" id="cursosAgregar"></td><td>CLA</td><td>0302 </td><td></td><td>64</td><td>64</td><td>39</td><td></td><td>Pereyra, P</td><td>LUN 14:00-17:00 C <br>MIE 14:00-17:00 C <br>VIE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS04T0303" id="cursosAgregar"></td><td>CLA</td><td>0303 </td><td></td><td>64</td><td>64</td><td>9</td><td></td><td>Salazar, J</td><td>LUN 14:00-17:00 C <br>MIE 14:00-17:00 C <br>VIE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS04T0304" id="cursosAgregar"></td><td>CLA</td><td>0304 </td><td></td><td>64</td><td>64</td><td>23</td><td></td><td>Sanchez, E</td><td>LUN 14:00-17:00 C <br>MIE 14:00-17:00 C <br>VIE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="4">1FIS05</td><td rowspan="4">LABORATORIO DE FÍSICA 2</td><td rowspan="4">.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS05L0371" id="cursosAgregar"></td><td>LAB</td><td>0371 </td><td></td><td>40</td><td>40</td><td>37</td><td></td><td></td><td>MAR 16:00-18:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS05L0372" id="cursosAgregar"></td><td>LAB</td><td>0372 </td><td></td><td>40</td><td>40</td><td>11</td><td></td><td></td><td>JUE 07:00-09:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS05L0373" id="cursosAgregar"></td><td>LAB</td><td>0373 </td><td></td><td>40</td><td>40</td><td>11</td><td></td><td></td><td>JUE 09:30-11:30 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS05L0374" id="cursosAgregar"></td><td>LAB</td><td>0374 </td><td></td><td>40</td><td>40</td><td>28</td><td></td><td></td><td>JUE 16:00-18:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="4">1INF01</td><td rowspan="4">FUNDAMENTOS DE PROGRAMACIÓN</td><td rowspan="4">3</td><td><input type="checkbox" name="cursosAgregar" value="1INF01T0321" id="cursosAgregar"></td><td>CLA</td><td>0321 </td><td></td><td>50</td><td>50</td><td>67</td><td></td><td>Allasi, D</td><td>LUN 10:00-13:00 C <br>MIE 10:00-12:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1INF01T0322" id="cursosAgregar"></td><td>CLA</td><td>0322 </td><td></td><td>55</td><td>55</td><td>56</td><td></td><td>Vargas, S</td><td>LUN 10:00-13:00 C <br>MIE 10:00-12:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1INF01T0323" id="cursosAgregar"></td><td>CLA</td><td>0323 </td><td></td><td>55</td><td>55</td><td>20</td><td></td><td>Ponce, S</td><td>LUN 10:00-13:00 C <br>MIE 10:00-12:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1INF01T0324" id="cursosAgregar"></td><td>CLA</td><td>0324 </td><td></td><td>45</td><td>45</td><td>37</td><td></td><td>Latorraca, R</td><td>LUN 10:00-13:00 C <br>MIE 10:00-12:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="4">1MAT07</td><td rowspan="4">CÁLCULO INTEGRAL</td><td rowspan="4">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1MAT07T0301" id="cursosAgregar"></td><td>CLA</td><td>0301 </td><td></td><td>64</td><td>64</td><td>11</td><td></td><td>Agapito, R</td><td>LUN 10:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT07T0302" id="cursosAgregar"></td><td>CLA</td><td>0302 </td><td></td><td>64</td><td>64</td><td>74</td><td></td><td>Henostroza, J</td><td>LUN 10:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT07T0303" id="cursosAgregar"></td><td>CLA</td><td>0303 </td><td></td><td>64</td><td>64</td><td>14</td><td></td><td>Mendoza, J</td><td>LUN 10:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT07T0304" id="cursosAgregar"></td><td>CLA</td><td>0304 </td><td></td><td>64</td><td>64</td><td>42</td><td></td><td>Sanchez, R</td><td>LUN 10:00-13:00 C <br>MAR 10:00-13:00 C <br>JUE 10:00-13:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="3">1MAT08</td><td rowspan="3">CÁLCULO EN VARIAS VARIABLES</td><td rowspan="3">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1MAT08T0301" id="cursosAgregar"></td><td>CLA</td><td>0301 </td><td></td><td>64</td><td>64</td><td>5</td><td></td><td>Arce, J</td><td>LUN 07:00-10:00 C <br>MAR 07:00-10:00 C <br>JUE 07:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT08T0302" id="cursosAgregar"></td><td>CLA</td><td>0302 </td><td></td><td>64</td><td>64</td><td>62</td><td></td><td>Chau, N</td><td>LUN 07:00-10:00 C <br>MAR 07:00-10:00 C <br>JUE 07:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT08T0303" id="cursosAgregar"></td><td>CLA</td><td>0303 </td><td></td><td>64</td><td>64</td><td>1</td><td></td><td>Tapia, C</td><td>LUN 07:00-10:00 C <br>MAR 07:00-10:00 C <br>JUE 07:00-10:00 C </td><td>No</td></tr><tr><td><b>Nivel: 4</b></td></tr><tr class="pucpCeldaGris"><td rowspan="4">1FIS06</td><td rowspan="4">FÍSICA 3</td><td rowspan="4">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS06T0401" id="cursosAgregar"></td><td>CLA</td><td>0401 </td><td></td><td>64</td><td>64</td><td>56</td><td></td><td>Vilcapoma, L</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS06T0402" id="cursosAgregar"></td><td>CLA</td><td>0402 </td><td></td><td>64</td><td>64</td><td>38</td><td></td><td>Lira, J</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS06T0403" id="cursosAgregar"></td><td>CLA</td><td>0403 </td><td></td><td>64</td><td>64</td><td>11</td><td></td><td>Moscoso, R</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS06T0404" id="cursosAgregar"></td><td>CLA</td><td>0404 </td><td></td><td>64</td><td>64</td><td>71</td><td></td><td>Calderon, J</td><td>LUN 14:00-17:00 C <br>MAR 14:00-17:00 C <br>JUE 14:00-17:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="4">1FIS07</td><td rowspan="4">LABORATORIO DE FÍSICA 3</td><td rowspan="4">.5</td><td><input type="checkbox" name="cursosAgregar" value="1FIS07L0471" id="cursosAgregar"></td><td>LAB</td><td>0471 </td><td></td><td>36</td><td>36</td><td>13</td><td></td><td></td><td>VIE 07:00-09:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS07L0472" id="cursosAgregar"></td><td>LAB</td><td>0472 </td><td></td><td>36</td><td>36</td><td>43</td><td></td><td></td><td>VIE 10:00-12:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS07L0473" id="cursosAgregar"></td><td>LAB</td><td>0473 </td><td></td><td>36</td><td>36</td><td>14</td><td></td><td></td><td>VIE 12:00-14:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1FIS07L0474" id="cursosAgregar"></td><td>LAB</td><td>0474 </td><td></td><td>36</td><td>36</td><td>34</td><td></td><td></td><td>VIE 16:00-18:00 L </td><td>No</td></tr><tr class="pucpCeldaGris"><td rowspan="2">1MAT09</td><td rowspan="2">CÁLCULO APLICADO</td><td rowspan="2">4.5</td><td><input type="checkbox" name="cursosAgregar" value="1MAT09T0401" id="cursosAgregar"></td><td>CLA</td><td>0401 </td><td></td><td>64</td><td>64</td><td>74</td><td></td><td>Beltran, J</td><td>LUN 07:00-10:00 C <br>MIE 07:00-10:00 C <br>VIE 07:00-10:00 C </td><td>No</td></tr><tr class="pucpCeldaGris"><td><input type="checkbox" name="cursosAgregar" value="1MAT09T0402" id="cursosAgregar"></td><td>CLA</td><td>0402 </td><td></td><td>64</td><td>64</td><td>43</td><td></td><td>Figueroa, C</td><td>LUN 07:00-10:00 C <br>MIE 07:00-10:00 C <br>VIE 07:00-10:00 C </td><td>No</td></tr></tbody></table></div>
+    <br>
+    <div id="botonGrabarAbajo" align="right" style="display: block;"><button type="button" onclick="javascript:grabarOnClick()" class="pucpBoton pucpBotonCorto" onmouseover="self.status = ''; return true">Grabar</button></div>
+    <!--<div align = "right"><a href="javascript:grabarOnClick()"><img border=0 class="pucpBoton" onMouseOver="self.status = ''; return true" alt="Grabar" src="../../lib/images/b_grabar.gif"></a></div>-->
+ 	<div>
+ 	<table class="pucpTablaTitulo" width="100%">
+ 		<tbody><tr><td class="pucpTitulo">Estados que el alumno presenta en su inscripción durante la matricula por Internet</td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Inscrito</td></tr>
+ 		<tr><td class="pucpCelda">Indica la intención del alumno de matricularse en el curso horario seleccionado. No implica que haya obtenido la vacante.</td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Infractor al plan de estudios</td></tr>
+ 		<tr><td class="pucpCelda">Indica que el alumno no cumple con los requisitos establecidos en el plan de estudios del curso, motivo por el cual no es considerado para la asignación de vacantes.</td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Infractor por cruce de horarios</td></tr>
+ 		<tr><td class="pucpCelda">Indica que el alumno no obtuvo vacante en el curso horario seleccionado por presentarse cruces con otro curso de su inscripción.</td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Prematriculado</td></tr>
+ 		<tr><td class="pucpCelda">Indica que la unidad le asignó una vacante en el curso horario</td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Matriculado</td></tr>
+ 		<tr><td class="pucpCelda">Indica que el alumno ha obtenido la vacante en el curso horario que seleccionó</td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Matricula anulada</td></tr>
+ 		<tr><td class="pucpCelda">Indica que la matricula del alumno en el curso horario seleccionado ha sido anulada en cumplimiento de las normas de la Universidad, particularmente las incluidas en la Guía del estudiante. </td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Sin Vacante</td></tr>
+ 		<tr><td class="pucpCelda">Indica que el alumno no obtuvo vacante en el curso horario que seleccionó. </td></tr>
+ 		<tr><td class="pucpEtiqEdicion">Sin Vac/Simult</td></tr>
+ 		<tr><td class="pucpCelda">Indica que el alumno no obtuvo vacante en el curso horario por no haber alcanzado vacante en el curso que debe llevar simultáneamente.</td></tr>
+ 	</tbody></table>
+ 	</div>
+</form>
+<br><br>
+
+
+
+
+ 
+
+
+
+
+<hr class="pucppiehr"> 
+	<div style="width: 100%;display: table;">
+		<div class="pucppiedesktop" style="width: 45%; text-align:left;">
+			<div style="width:100%">
+				<span class="pucpCampo">
+					© Pontificia Universidad Católica del Perú
+				</span><br>
+				<span class="pucpCampo">
+					Av. Universitaria 1801, San Miguel
+				</span><br>
+				<span class="pucpCampo">
+					Lima-32 PERU      Telf. (511) 6262000
+				</span><br>			
+			</div>
+		</div>		
+		<div class="divhorapucp" style="display: table-cell; text-align:center;">
+			<div style="width:100%">
+				<span class="pucpCampo" id="horapucp">
+					<a class="pucpMailLink" href="javascript:top.mostrarHoraPUCPAlt()" id="linkHora" style="display: inline-block;">Hora PUCP</a>
+					<span id="textoHora"></span>
+				</span>
+			</div>
+			<div class="pucppiemovil" style="width:100%">
+					
+				<input type="hidden" name="idConfContacto" value="null">
+				<input type="hidden" name="url__" value="/pucp/prematri/pmwmatrc/jsp/AccionMostrarInscripcion.jsp">				
+				<span class="pucpCampo">consultas a: <a href="/pucp/correo/cowcrint/cowcrint;jsessionid=0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc?accion=CrearMensaje&amp;dirPara=asistencia-dti@pucp.edu.pe&amp;dirCC=&amp;dirCCO=&amp;asunto=&amp;mensaje=" class="pucpMailLink" onmouseover="self.status = ''; return true">asistencia-dti@pucp.edu.pe</a></span>
+				
+			</div>
+			<div class="pucppiemovil" style="width:100%">
+				<span class="pucpCampo">
+					© Pontificia Universidad Católica del Perú
+				</span><br>
+				<span class="pucpCampo">
+					Av. Universitaria 1801, San Miguel
+				</span><br>
+				<span class="pucpCampo">
+					Lima-32 PERU      Telf. (511) 6262000
+				</span><br>			
+			</div>
+		</div>
+		
+		<div class="pucppiedesktop" style="width: 45%; text-align:right;">			
+			<div style="width:100%">
+				
+				<span class="pucpCampo">consultas a: <a href="/pucp/correo/cowcrint/cowcrint;jsessionid=0000WEa8-kxhivljF3Cw_NOoZfT:1h5qi8otc?accion=CrearMensaje&amp;dirPara=asistencia-dti@pucp.edu.pe&amp;dirCC=&amp;dirCCO=&amp;asunto=&amp;mensaje=" class="pucpMailLink" onmouseover="self.status = ''; return true">asistencia-dti@pucp.edu.pe</a></span>							
+				<br>
+				
+				<span class="pucpCampo">Dirección de Tecnologías de Información</span>
+			</div>			
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+<!--
+<script type="text/javascript"> 
+document.urlValidarCondicionAlumno="services/verificarCondicionAlumno.jsp";
+document.urlFechaInscripcionActual="services/fechaInscripcionActual.jsp";-->
+<script type="text/javascript">
+document.urlAgregarCursosInscripcion="/pucp/prematri/pmwmatrc/pmwmatrc?accion=ActualizarInscripcion";
+document.urlBuscarHorarios="/pucp/prematri/pmwmatrc/pmwmatrc?accion=ConsultarHorariosInscripcion";
+document.urlBuscarCursosInscrito="/pucp/prematri/pmwmatrc/pmwmatrc?accion=BuscarCursosInscritos";
+document.urlBuscarEspecialidadesFacultades="/pucp/prematri/pmwmatrc/pmwmatrc?accion=BuscarFacultadesEspecialidades";
+document.tipoHorarios={"E":"EXA","I":"CL2","L":"LAB","H":"CL1","G":"TAL","P":"PRA","D":"DIR","T":"CLA","A":"ASE"};
+document.modalidad={"0":"Presencial","2":"Virtual","3":"Semipresencial","1":"A Distancia","S":"-"};
+document.cursos = {
+    "agregar":{},
+    "eliminar":{}
+};
+document.especialidades=[];
+
+function armarCurso (curso,tbody) {
+    var horarios = curso [3];
+    for (var i = 0; i < horarios.length; i++) { 
+    	var elm = horarios[i];
+        var tr = tbody.createTr();tr.className = "pucpCeldaGris";
+        if (i == 0) tr.addMultilineTextRow(horarios.length, [curso[0],curso[1],curso[2]])
+        var pad = tr.createTd();
+        if (eval(elm [4])==1){
+       		 /*********************************************************************************************/
+        	//26-06-2012 se ha agregado un campo ma sen caso provenga del generador de horarios.. Si ese ultimo campo tiene valor..hacerle caso.. sino NO!
+        	/*********************************************************************************************/
+        	var chk = pad.createInput("checkbox","cursosAgregar", curso[0]+elm[1]+elm[0]);
+        	//AVR 08-07-2015
+        	//Se reemplaza la variable 12 por 13
+        	//if (elm[12] != null) {//si existe entonces ver el valor para ver si se le pone el check o no
+        	if (elm[15] != null) {//si existe entonces ver el valor para ver si se le pone el check o no
+        		//if (elm[12] == "1") {
+				if (elm[15] == "1") { 
+					chk.checked = true;
+					//ademas se agrega a la variable document.cursos.agregar
+					var datosCurso = curso[0]+elm[1]+elm[0]
+					document.cursos.agregar[datosCurso]=true;
+				}
+	        } else {//no existe entonces viene desde la isncripcion, no se hace nada
+	        }
+	        chk.onclick = function () {
+	                document.cursos.agregar[this.value]=this.checked;
+	        }
+	        /*********************************************************************************************/
+        }
+        //AVR 08-07-2020: Se retiran prematriculados
+        var numMatric= elm[12] ? Number(elm[12]) : 0;
+        var numPrematric= elm[11] ? Number(elm[11]) : 0;
+        var matricPremat= numMatric+numPrematric;  
+        var indpresencial=elm[13];
+        var indvirtual=elm[14];  
+        //alert("indpresencial:"+indpresencial+"--");
+        var txtPresencial= "-";
+        var txtVirtual= "-";
+        if (indpresencial=="0")
+        	txtPresencial= "No";
+        else if(indpresencial=="1")
+        	txtPresencial= "S&iacute;&nbsp;<svg onclick='javascript:AbreVentanaNueva(\"/pucp/horarios/howsepre/howsepre?accion=ConsultarListaPresenciales&codCiclo=20240000&clavecurso="+curso[0]+"&tipohorario="+elm[1]+"&horario="+elm[0]+"\",0,350,250)' xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='blue' style='cursor: pointer;' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'></path></svg>";
+        
+        if (indvirtual=="0")
+        	txtVirtual= "No";
+        else if(indvirtual=="1")
+        	txtVirtual= "S&iacute;&nbsp;<svg onclick='javascript:AbreVentanaNueva(\"/pucp/horarios/howsepre/howsepre?accion=ConsultarListaPresVirt&codCiclo=20240000&clavecurso="+curso[0]+"&tipohorario="+elm[1]+"&horario="+elm[0]+"\",0,400,250)' xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='blue' style='cursor: pointer;' class='bi bi-search' viewBox='0 0 16 16'><path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'></path></svg>";
+        
+        if (esPrematMat=="0")matricPremat=0;
+        
+        tr.addTextRow([
+            document.tipoHorarios[elm[1]],
+            //elm[1]+
+            elm[0]+ " "+ (!!elm[3]?elm[3]:""), //el horario con la oservacion
+            elm[5],
+            //document.modalidad[elm[2]],AVR: 27/07/2020 Se retira modalidad
+            elm[8],//vacantes
+            elm[9],//12-02-2013 vacantes de unidad
+            elm[10],//inscritos
+            //elm[11],//prematriculados
+            //elm[12],//matriculados
+            matricPremat,
+            !!elm[6]?elm[6]:"",
+            !!elm[7]?elm[7]:"",
+            //txtPresencial //Agregamos el dato de presencialidad
+            txtVirtual
+        ]);
+    }
+}
+
+function AbreVentanaNueva(pUrl,pMostrarToolbar,pWidht,pHeight)
+{  
+	if (pMostrarToolbar == 1){
+		var ventana = window.open(pUrl,'center','width='+pWidht+',height='+pHeight+',location=yes,status=yes,toolbar=yes,menubar=yes,scrollbars=yes,resizable=yes'); 
+	}else{
+		var ventana = window.open(pUrl,'_blank','width='+pWidht+',height='+pHeight+',location=no,status=no,toolbar=no,menubar=no,scrollbars=yes,resizable=yes'); 	
+	}
+    ventana.focus();
+    return;
+}
+
+function mostrarResultados(div, cursos) {
+  try{
+    div = $(div);
+    div.removeChilds();
+    var datos = cursos.data;
+    var mode = cursos.mode;
+
+    var table = div.createTable();
+    var tbody = table.createTbody();
+    var tr=tbody.createTr();
+    table.className="pucpTablaTitulo";
+    table.width = "100%"
+    tr.className="pucpCeldaTitulo";
+    //AVR: 27/07/2020 Se retira modalidad
+    //tr.addTextRow(["Clave","Nombre del Curso","Créd.","Agregar","Tipo","Horario","Hor. Aso.","Modalidad","Vac.","Vac.Unid","Ins.","Pre.Mat.","Mat.","Docentes","Sesiones"]);
+    //tr.addTextRow(["Clave","Nombre del Curso","Créd.","Agregar","Tipo","Horario","Hor. Aso.","Vac.","Vac.Unid","Ins.","Pre.Mat.","Mat.","Docentes","Sesiones"]);
+    //AVR: 11/12/2020 Se retira prematriculados
+//    tr.addTextRow(["Clave","Nombre del Curso","Créd.","Agregar","Tipo","Horario","Hor. Aso.","Vac.","Vac.Unid","Ins.","Mat.","Docentes","Sesiones"]);
+	//AVR 22-12-2021: Se agrega la info de sesiones presenciales
+	//tr.addTextRow(["Clave","Nombre del Curso","Créd.","Agregar","Tipo","Horario","Hor. Aso.","Vac.","Vac.Unid","Ins.","Mat.","Docentes","Sesiones", "Sesiones presenciales"]);
+	//AVR 19-07-2022: Se agrega la info de sesiones virtuales
+	tr.addTextRow(["Clave","Nombre del Curso","Créd.","Agregar","Tipo","Horario","Hor. Aso.","Vac.","Vac.Unid","Ins.","Mat.","Docentes","Sesiones", "¿Tiene sesiones virtuales?"]);
+    document.cursos.agregar={};
+     $("botonGrabarAbajo").style.display="block"; 
+    //mostrar sin niveles
+    if (mode == 1) { // sin ser ordenado por niveles
+        for (var i = 0; i < datos.length; i ++) {
+            armarCurso(datos[i],tbody);
+        }
+    }
+    //mostrar con niveles
+    var valorVariable =""//si el inidicador es 0 entonces el nivel es variable independiente del si es de nivel 5,6,7...
+    var cont = 0
+    if (mode==2) {
+        for (var i = 0; i < datos.length; i ++) {
+           var a= datos[i][0];//saca el nivel
+           var b = datos[i][1];//saca el inidicanivel
+           var c =  datos[i][2];//saca la data
+           var d = datos[i][2].length
+           
+            if (c.length > 0) { 
+                valorNivel = datos[i][1] == 0? "Variable":datos[i][0];
+                if (cont == 0) {
+                    var newRow = tbody.insertRow(-1);
+					var newCell0 = newRow.insertCell(0);
+					newCell0.innerHTML = "<b>Nivel: " + valorNivel +"</b>";										                    
+	               /*  var tr2 = tbody.createAppendElement("tr");  
+                	tr2.innerHTML = ("<td colspan=\"5\"><b>Nivel: " + valorNivel +"</b></td>");*/
+                }
+                 cont = valorNivel == "Variable"? cont+1: 0;
+                for (var j = 0; j < c.length; j ++) {
+                     armarCurso(c[j],tbody);
+                }
+            }
+        }
+    }
+    //ocultar en caso no hayan resultados
+    if (tbody.childNodes.length==1) {
+        //div.style.display="none";
+        if (cursos.cause != null)
+        	alert("error: cursos.message:"+ cursos.cause.trace)
+        //else 
+        	//alert("no hay data: cursos.data:"+datos)
+        	
+        //se muestra el mensaje que no encuentra resultados
+        div.style.display="none";
+        mostrarAviso("avisoResultados","No se encontró información con los criterios ingresados. ","");
+        $("botonGrabarAbajo").style.display="none"; 
+        //mostrarAviso("aviso1","Sin resultados","La búsqueda realizada no arrojo ningún resultado, intente nuevamente cambiando los criterios.")
+    }
+    else {
+        div.style.display="block";
+    }
+  } catch(ex) {
+    throw(ex);
+  }
+}
+
+function grabarOnClick () {
+//1: espera de busqueda de horarios
+	if(!startRequest("1"))return;
+	running = false;
+	$("loading").style.display="none"; 
+	
+    var form = document.forms["filtros"];
+    var cursosAgregar = cadenaCursos("agregar");
+    var cursosEliminar = cadenaCursos("eliminar");
+    var cic = datosCiclo();
+//borrar los posibles mensajes que se encuentren
+	$("mensajeResul").style.display="none";
+	var msn = $("mensajeGrabar");
+	msn.style.display="none";
+    if (cursosAgregar != "" || cursosEliminar!= "") {
+	    //mensaje de confirmacion en caso desee continuar con las modificaciones
+	    // si hay cursos por eliminar se pregunta
+	    var grabar;
+	    if (cursosEliminar != "") {
+	        grabar = confirm("¿Está seguro que desea realizar las modificaciones indicadas?");
+	    } else if (cursosAgregar != ""){
+	    	grabar = true;
+	    }
+	    if (grabar) {
+	    //verificar que no se agregue un curso en donde ya se encuentra inscrito
+	     if(validacionAntesGrabar()) {
+	     //antes de grabar se debe mostrar el foco al incio de la pagina
+	     	document.location.href = "#inicio";
+  			//3: espera al momento de guardar.. 
+	     	if(!startRequest("3"))return;
+		     serveForm(
+		        (function (req, args){
+		          try {
+		            var resp = eval("("+req.responseText+")");
+		            runningGuardar = false;
+					$("loadingGrabar").style.display="none"; 
+					//si existe alguna exception lanzada a proposito
+		            var exception = resp.Exc;
+					if (exception) {
+						session = document.filtros.session.value;
+						window.location="/pucp/prematri/pmwmatrc/pmwmatrc;jsessionid=" + session +"?accion=VerificaSesion&mensaje="+exception+"&servicio=MostrarPortal";
+					} else {
+						//esta bien
+			            var code = resp.code;
+			            var fase =  resp.fase;
+			            var fechaHora = resp.fechaHora;
+		            
+			            if (fase == "update") {
+			                buscarCursosInscritos();  
+			                //si hay error se muestra sino no se muestra nada             
+			                if (code == "0") {
+			                	$("mensajeResul").style.display="block";
+			                    args[0].innerHTML = resp.message;
+			                	args[0].style.display="block";
+			                	document.location.href = "#errores";
+			                } else {
+					            //parchamos el codigo y quitamos todos los check enviados
+					            $("mensajeResul").style.display="none";
+	
+					            quitaChecks(document.filtros.cursosAgregar);
+					            quitaChecks(document.filtros.cursosEliminar); 				            
+					            document.cursos = {
+					    				"agregar":{},
+					    				"eliminar":{}
+								}; 
+								document.location.href = "#inicio";
+							} 
+			            } else {
+			             	if (code == "1") {//error
+			             		$("mensajeResul").style.display="block";
+			                	args[0].innerHTML = resp.message;
+			                	args[0].style.display="block";
+			                	document.location.href = "#errores";
+			                } else {
+					            //parchamos el codigo y quitamos todos los check enviados
+					            $("mensajeResul").style.display="none";
+	
+					            quitaChecks(document.filtros.cursosAgregar);
+					            quitaChecks(document.filtros.cursosEliminar);
+					            document.cursos = {
+					    				"agregar":{},
+					    				"eliminar":{}
+								}; 
+								document.location.href = "#inicio"; 
+			                }
+			            }
+		           		//mostrar fecha actual
+		   				 indicaFechaActual(fechaHora); //AHORA SE JALA LA FECHA TAMBIEN LUEGO DE GRABAR!!!!  
+		   			}
+	   			  } catch (ex) {
+	   			  	var mensaje = req.responseText       
+					if(mensaje.indexOf("SinSesion") > 0) {
+			 			session = document.filtros.session.value;
+						window.location="/pucp/prematri/pmwmatrc/pmwmatrc;jsessionid=" + session +"?accion=VerificaSesion";			 	
+					} 
+		   		  }
+		        }),
+		        [$("mensajeGrabar")],
+		        document.urlAgregarCursosInscripcion,
+		        encodeParameters(
+		            "horariosAgregar",cursosAgregar,
+		            "horariosEliminar",cursosEliminar,
+		            "cicloano",cic.cicloano,
+		            "tipociclo",cic.tipociclo,
+		            "ciclo",cic.ciclo
+		        )
+		     );
+		  }
+		}
+    } else {
+    //si no hay cursos para agregar o eliminar entonces mostrar un mensaje de seleccionar elementos antes de grabar
+    	alert("Ud. no ha seleccionado ningún curso para eliminar o agregar");
+    }
+    //mostrar fecha actual
+   // indicaFechaActual(); 
+}
+
+function facultadChange () {
+   
+   // var f = eval("("+$("facultad").value+")");
+    var f = $("facultad").value
+    actualizaListaEspecialidades(document.especialidades, f);
+} 
+
+function bodyOnLoad () {
+//se oculta la tabla donde se muestra los errores
+	$("mensajeResul").style.display="none"
+	$("botonGrabarArriba").style.display="none"; 
+	$("botonGrabarAbajo").style.display="none"; 
+	//se muestra la imagen de espera 
+	//2: busqueda de cursos inscritos..
+	if(!startRequest("2"))return;
+    cargaCiclos([["2024","00","00","2024-0"],["2023","00","02","2023-2"]],"2024","00","00");
+   $("ciclo").onchange = cicloOnChange;
+    cicloOnChange();
+    verificaCondicionAlumno("LOAD");//cuando se carga la pagina
+    indicaFechaActual("LOAD"); //cuando se carga la pagina
+    
+    /************************************************************************/
+    /**25-06-2012 en caso la inscripcion provenga del generador de horarios**/
+    /************************************************************************/
+    //se verifica la variable : cursosGeneradorHorario si es vacio no hace nada, pero si tiene valor es xq tiene una solucion
+    var listaCursosGenHor = ""; 
+    if ( listaCursosGenHor!= null && listaCursosGenHor != "") {
+    	//se llama a la busqueda con esta lista
+    	formularioBusquedaSubmit(listaCursosGenHor)
+    }
+}
+
+//filtra la lista de especialidades usando la facultad proporcionada para filtrar
+function actualizaListaEspecialidades (esp, facultad) {
+    var select = $("especialidad");
+    select.removeChilds();
+    select.createOption("false",(!!!facultad)?"- Seleccione una especialidad -":"------------");
+    for (var i = 0; i < esp.length; i++) {
+        if ((!!!facultad) || (esp[i][3] == facultad)) {
+            select.createOption("{\"rama\":\"" + esp[i][0] + "\"," + "\"especialidad\":\"" + esp[i][1] + "\"," + "\"etapa\":\"" + esp[i][2] + "\"," + "\"facultad\":\"" + esp[i][3] + "\"}",esp[i][4]);
+        }
+    }
+}
+
+//filtra la lista de especialidades usando la facultad proporcionada para filtrar
+function actualizaListaEspecialidadesActual (esp, facultad) {
+    var select = $("especialidad");
+    select.removeChilds();
+    select.createOption("false",(!!!facultad)?"- Seleccione una especialidad -":"------------");
+    for (var i = 0; i < esp.length; i++) {
+        if ((!!!facultad) || (esp[i][3] == facultad)) {
+            select.createOption("{\"rama\":\"" + esp[i][0] + "\"," + "\"especialidad\":\"" + esp[i][1] + "\"," + "\"etapa\":\"" + esp[i][2] + "\"," + "\"facultad\":\"" + esp[i][3] + "\"}",esp[i][4]);
+        }
+    }
+   //se setea por defecto la especialidad del alumno
+    document.filtros.especialidad.value ="{\"rama\":\"" + "030" + "\","+ "\"especialidad\":\""+ "0"+ "\"," +"\"etapa\":\""+ "01" +"\","+ "\"facultad\":\""+ "20"+"\"}";
+    
+}
+function seteaFacultadAlumno() {
+   //se setea por defecto la facultad del alumno
+ 	document.filtros.facultad.value = "20"; 
+ 	
+}
+function cadenaCursos(propiedad) {
+    var cursos = document.cursos[propiedad];
+    var s = "";
+    for (var curso in cursos) {
+        if (cursos[curso]) s+= curso;
+    }
+    return s;
+}
+ 
+function cicloOnChange() {
+  //se setea por defecto la especialidad del alumno
+     buscarCursosInscritos();
+    var c = datosCiclo();
+    var qs = encodeParameters(
+        "cicloano",c.cicloano,
+        "ciclo",c.ciclo,
+        "tipociclo",c.tipociclo
+    );
+    serveForm((function (req, args) {
+        var resp = eval("(" + req.responseText + ")");
+        document.especialidades = resp.especialidades;
+        cargaFacultades(resp.facultades);
+        actualizaListaEspecialidadesActual(document.especialidades,"20");
+    }), [], document.urlBuscarEspecialidadesFacultades, qs);
+}
+
+function verificaCondicionAlumno(mensaje) {
+	var obsCondicionAlum = $("observacion");
+	if (mensaje == "LOAD")
+		obsCondicionAlum.innerHTML = ""
+	else
+		obsCondicionAlum.innerHTML = mensaje
+}
+
+function indicaFechaActual(fecha) {
+	var fechaInformativa = $("fechaInformativa");
+	if (fecha == "LOAD")
+		fechaInformativa.innerHTML = "20/12/2023 - 08:29 AM"
+	else
+		fechaInformativa.innerHTML = fecha
+}
+        </script>
+    
+</body></html>
+				</iframe>				
+				<noframes> 
+				  <p>Esta página usa marcos, pero su explorador no los admite.</p>				
+			  </noframes> 
+			</div>
+		</div>
+	
+  
+
+
+</body></html>

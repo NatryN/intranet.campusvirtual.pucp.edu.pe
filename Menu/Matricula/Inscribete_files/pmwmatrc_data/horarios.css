@@ -1,0 +1,46 @@
+/* PUCP Intranet II style sheet */
+
+/* Define colores, letras y otros attributos de estilo  */
+
+/* titulo */
+.pucpTituloFechaSecuencia {font-family: Arial; font-size: 10pt; font-weight: bold; color:  #2C7D92;}	
+
+.pucpLinkCeldaHorAcad  {font-family: Arial; font-size: 8pt; background: White; color: #2C7D92;}
+
+.pucpLinkCeldaHorAcad2  {font-family: Arial; font-size: 8pt; background:#EFFBFB; color: #2C7D92;}
+
+.pucpLinkSeleccionado  {font-family: Arial; font-size: 8pt; text-decoration: none; background: #FFFF99; color: blue;}
+
+.pucpLinkCeldaHorario  {font-family: Arial; font-size: 8pt; color:  #2C7D92}
+
+.pucpHorCeldaSeleccionada {font-family: Arial; font-size: 8pt ; background: #FFFF99;}
+
+.pucpCuadroAgrupamiento {border:2px solid #2c7d92; background-color: #FFFFFF;}
+
+.pucpFechaCalenFeriado {color: #FF0000}
+
+.pucpSubTituloDIADM {
+	font-family: Arial;
+	font-size: 9pt;
+	color:  2c7d92;
+	font-weight: bold;
+	background-color: #FFFFFF;
+}
+
+.pucpTituloDIADM2 {
+	font-family: Arial;
+	font-size: 9pt;
+	color:  #FFFFFF;
+	font-weight: normal;
+	background-color: #3097b7;
+}
+.pucpCeldaHorAcad {
+   font-family: Arial; 
+   font-size: 8pt ; 
+   background:#EFFBFB;}
+}
+
+.filaNueva {font-family: Arial; font-size: 8pt; background-color:#CCFFCC;}
+.linkSeleccionado{font-family: Arial; font-size: 10pt; text-decoration: none; color:#FFFFFF; background:#2CA092;}
+.linkNoSeleccionado{font-family: Arial; font-size: 8pt; color:#2CA092;}
+

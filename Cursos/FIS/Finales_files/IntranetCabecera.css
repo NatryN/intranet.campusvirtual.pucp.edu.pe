@@ -1,0 +1,498 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+ 
+/* wrapper styles */
+ 
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	z-index: 1;
+	padding-top:83px;
+	min-width:320px;
+}
+
+#wrapper.toggled {
+    /*padding-left: 250px ;*/
+	padding-left:0px
+}
+
+#sidebar-wrapper {
+    z-index: 999;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    background: #2C7D92;
+    overflow-y: hidden;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    overflow-x:hidden;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+	overflow-y: auto;
+}
+
+#page-content-wrapper {
+	padding: 0px;
+	position:absolute;
+    width: 100%;    
+	position:absolute;
+	padding-left: 4px;
+	padding-top: 4px;
+	overflow:auto;	
+}
+
+#wrapper.toggled #page-content-wrapper {
+	/*position: relative;*/
+	margin-right: 0;    
+	position:absolute;
+}
+
+/* End wrapper styles */
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: relative;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sidebar-nav li{
+	text-indent: 15px;
+    line-height: 40px;	
+	border-top: 2px solid rgb(31,109,128);
+}
+
+.sidebar-nav li:first-child{
+  /* border: 0px;*/
+}
+
+.sidebar-nav li:last-child{	
+   border-bottom: 2px solid rgb(31,109,128);
+}
+
+.sidebar-nav li.configuracion{    
+	border-top: 2px solid rgb(181, 183, 47);
+}
+
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #FFFEFE;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+/* End Toggle Styles*/
+
+
+#header{
+	width:100%;
+	min-width:320px;
+	position:fixed;
+	z-index: 1000;
+	background-color: #042354; /*AVR 09-06-2021: Cambio de color a azul *//*rgb(0, 97, 129);*/
+	color: white; 
+	height: 88px; 
+	display: flex;
+	flex-direction: row; 
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera PUCP */
+.pucpLogo{
+	display: inline-flex; 
+	background-image: url('/pucp/jsp/images/logoPUCP2021.svg'); /*AVR 09-06-2021: Cambio de logo *//*url('/pucp/jsp/images/logo-pucp-version2.png');*/
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	height:88px;
+	width: 186px;/*AVR 09-06-2021: Cambio de logo *//*206px;*/
+	min-width:  186px;/*AVR 09-06-2021: Cambio de logo *//*206px;*/
+}
+
+.pucpMenuUsuario{	
+	display: inline-flex; 
+	width: 65px; 
+	min-width : 65px; 
+	text-align: center;flex-direction: column; align-items: center; justify-content: center;
+	cursor:pointer; 
+	border-right-style: solid; 
+	border-right-width: 1px; 
+	border-right-color: rgba(255, 255, 255, 0.5);
+	background-color: rgb(0, 97, 129);
+}
+
+.pucpBotonesPersonal{	
+	display: inline-flex; 
+	width: 70px; 
+	min-width : 70px; 
+	text-align: center;flex-direction: row; align-items: center; justify-content: center;
+	border-right-style: solid; 
+	border-right-width: 1px; 
+	border-right-color: rgba(255, 255, 255, 0.5);
+	border-left-style: solid; 
+	border-left-width: 1px; 
+	border-left-color: rgba(255, 255, 255, 0.5);
+	font-family: Fira Sans; 
+	font-size: 14pt;
+	justify-content: space-around;
+}
+
+.imgcabecera{	
+	margin-left: 1px;
+	height:88px;
+} 
+
+.cerrar-sesion{	  
+	cursor:pointer;
+}
+
+.pucpNombreCampus {
+	font-family: Fira Sans; 
+	font-size: 14pt;
+	margin: 0; 
+	margin-left: 10px;
+}
+
+.pucpNombreUsuario {
+	
+	font-family: Fira Sans; 
+	font-size: 100%; 
+	float: left; 
+	margin: 0; 
+	letter-spacing: 1px; 
+	margin-left: 10px;
+}
+
+.pucpDatosUsuario{
+	display: inline-flex; 
+	width: calc(100% - 185px);
+	align-items: start; 
+	justify-content: center; 
+	flex-direction: column;
+}
+
+
+.pucpTituloMenu{
+	font-family: Fira Sans; 
+	font-size: 10pt;
+	margin: 0;
+}
+
+.pucpBotonMenu{    
+    width: 25px; 
+	height: 2px;  
+	background-color: white; 
+	margin: 4px 0;
+}
+
+.pucpBotonCerrarSesion{
+	display: inline-flex; 
+	align-items: center; 
+	margin: 5px;
+}
+
+.pucpBotonPersonal {
+	color:#FFFFFF;
+	text-decoration:underline;
+}
+
+.pucpBotonPersonal:hover {
+	color:#FFFFFF;
+	text-decoration:underline;
+	opacity: 0.5;
+}
+
+/* Fin Cabecera PUCP */
+/* Menu navegacion PUCP */
+
+.menuNavPrincipal a{
+	cursor:pointer;		
+}
+
+.submenu-nivel-1{
+	display: block;
+    text-decoration: none;
+    color: #FFFEFE;	
+	font-family:Arial, Helvetica, sans-serif;
+	list-style: none;	
+	padding: 0;
+}
+
+.submenu-nivel-1 li{
+	text-indent: 0px ;
+	margin-left: 10px;
+	border:0px;
+	border-bottom: 2px solid rgb(34, 114, 133);	
+}
+
+.submenu-nivel-1 li:last-child{	
+	border-bottom:none
+}
+
+.submenu-nivel-1 li a {    
+    font-style: italic;
+    color: #D8D7D7;
+}
+
+.submenu-nivel-2 li a {
+	font-weight:normal;	
+}
+
+.submenu-nivel-2 {
+	display: block;
+    list-style: none;
+	color: #FFFEFE;	
+	font-family:Arial, Helvetica, sans-serif;
+    padding: 2px;
+}
+
+.submenu-nivel-2 li{
+	text-indent: 0px !important;
+	margin-left: 10px;
+	border:0px;
+	border-bottom: 2px solid rgb(37, 117, 136);	
+}
+
+.submenu-nivel-2 li:last-child{	
+	border-bottom:none
+}
+
+
+.submenu-nivel-1 li span{		
+	font-weight:normal;
+}
+
+.sidebar-nav li {
+	text-indent: 5px;
+	line-height: 30px;
+}
+
+/* Fin Menu navegacion PUCP */
+
+body{
+	overflow-x: scroll;
+}		
+
+.container-fluid{
+	padding-left: 5px;
+	padding-right: 5px;	
+}		
+
+.enlacesDepurarSistema{
+		display:inline-block;
+}
+
+@media (max-width: 767px){
+	body{
+		overflow-x: hidden;
+	}
+	
+	.container-fluid{
+		padding-left: 0px;
+		padding-right: 0px;	
+	}
+	
+	.pucpBotonMenu {    
+		font-size: 18pt !important;		
+	}	
+	
+	.cerrar-sesion{		
+		/*font-size: 13pt !important;
+		line-height: 18pt;
+		top: 40px;*/
+	}
+	
+	.enlacesDepurarSistema{
+		display:none;
+	}
+	
+	.pucpNombreCampus {		
+		font-size: 12pt;    
+	}
+	
+	.pucpNombreUsuario {   
+		padding-left: 3px;
+		font-size:9pt;
+	}
+	 
+	.pucpLogo{
+		display: inline-flex; 
+		background-image: url('/pucp/jsp/images/logoPUCP2021.svg'); /*AVR 09-06-2021: Cambio de logo *//*url('/pucp/jsp/images/logo-pucp-version2movil.png');*/
+		height:88px;
+		width: 186px;
+		min-width: 186px;
+	}
+	
+	.imgcabecera{
+		height:45px;
+		width: 142px;
+	}
+	
+	.MensajeIconoEspera{
+		font-size:12pt;
+	}
+	
+	.pucpNombreCampus{
+		display: none;
+	}
+	
+	.pucpNombreUsuario{
+		display: none;
+	}
+	
+	.pucpBotonCerrarSesion{
+	display: inline-flex; 
+	align-items: center; 
+	margin: 4px;
+	}
+}
+
+@media (max-width: 360px){
+	.pucpBotonMenu {
+		font-size: 14pt !important;
+		padding-right: 2px;
+	}	
+	
+	.pucpNombreCampus{
+		display: none;
+	}
+	
+	.pucpNombreUsuario{
+		display: none;
+	}
+	
+	.pucpBotonCerrarSesion{
+	display: inline-flex; 
+	align-items: center; 
+	margin: 2px;
+	}
+	
+	.pucpLogo{
+		display: inline-flex; 
+		background-image: url('/pucp/jsp/images/logoPUCP2021.svg'); /*AVR 09-06-2021: Cambio de logo *//*url('/pucp/jsp/images/logo-pucp-version2movil.png');*/
+		height:88px;
+		width: 186px;
+		min-width: 186px;
+	}
+}
+
+
+.page-content-wrapper{
+	/*height:100% !important;*/
+	padding:0px !important;
+	overflow:hidden !important;	
+}
+/* Fix IOS*/
+.ios-scroll {
+	-webkit-overflow-scrolling: touch !important;
+  	overflow-y: scroll !important;	
+	overflow-x: scroll !important;	
+}
+/* Fin Fix IOS*/
+/* pantalla de espera */
+.MensajeIconoEspera{
+	font-family: Arial;
+    display: block;
+    position: relative;    
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: center;
+	color:#6798a6;
+	font-weight:bold;
+	font-size:15pt;
+}
+
+#fondo_icono_espera{
+	display:none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 500;
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255,0.80);
+	text-align:center;
+}
+
+#icono_espera{
+	position: absolute;
+	top: 45%;
+	width: 100%;
+	text-align:center;	
+}
+
+.fa-pucp-spin{
+	-webkit-animation:fa-spin 4s infinite linear;
+	-moz-animation:fa-spin 4s infinite linear;
+	animation:fa-spin 4s infinite linear;
+	      
+}
+/*Coreccion jquery Mobile*/
+.ui-loader.ui-corner-all.ui-body-a.ui-loader-default{
+	display:none;	
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+/* Fin pantalla de espera */
+
+
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Sans Regular'), local('FiraSans-Regular'), url('/pucp/lib/font/FiraSans/FiraSans-Regular.ttf') format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Sans Regular'), local('FiraSans-Regular'), url('/pucp/lib/font/FiraSans/FiraSans-Regular.ttf') format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}

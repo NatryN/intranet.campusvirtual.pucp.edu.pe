@@ -1,0 +1,848 @@
+<!--Reestructuración del panel GWO 05-04-16  -->
+<!--Fin GWO -->
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Oracle JDeveloper">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/menu.css"> 
+
+
+
+<!-- Librerías js para hacer la página responsive GWO 05-04-16 -->
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/pucpPropAcadExtPopup.css">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/panelFC.css"> 
+
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">	
+<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/jquery-ui-1.11.4.min.css">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/generalResponsive.css">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/panelOpciones.css">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/pucpArbol-1.0.1.css">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/pucp.css">
+
+
+   
+<script type="text/javascript" language="JavaScript1.2" src="pucpDisponibilidadIdioma_es.js"> </script>
+   
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ocwcurpa_data/jquery-ui-1.11.4.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+
+
+
+<title>Panel de curso</title>
+
+
+
+
+<style>
+.botonMenuPanel {
+	background: rgba(225,236,239,1);
+	background: -moz-linear-gradient(left, rgba(225,236,239,1) 0%, rgba(67,146,168,1) 72%, rgba(67,146,168,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(225,236,239,1)), color-stop(72%, rgba(67,146,168,1)), color-stop(100%, rgba(67,146,168,1)));
+	background: -webkit-linear-gradient(left, rgba(225,236,239,1) 0%, rgba(67,146,168,1) 72%, rgba(67,146,168,1) 100%);
+	background: -o-linear-gradient(left, rgba(225,236,239,1) 0%, rgba(67,146,168,1) 72%, rgba(67,146,168,1) 100%);
+	background: -ms-linear-gradient(left, rgba(225,236,239,1) 0%, rgba(67,146,168,1) 72%, rgba(67,146,168,1) 100%);
+	background: linear-gradient(to right, rgba(225,236,239,1) 0%, rgba(67,146,168,1) 72%, rgba(67,146,168,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1ecef', endColorstr='#4392a8', GradientType=1 );
+	width: 127px;
+	border: 0;
+	color: white;
+	padding: 0px;
+	display: table;
+	margin-bottom: 2px;
+	cursor: pointer;
+}
+.botonMenuPanel > div.fright{	
+    width: 76px;
+	height: 31px;    
+    font-size: 11px;
+    display: table-cell; 
+	vertical-align: middle;	
+    padding-right: 2px;
+}
+.botonMenuPanel > div.fleft{	   
+    padding-left: 6px;
+	width: 40px;
+	display: table-cell;
+	
+}
+
+
+.contItemMenuPagPersonal{
+		margin-left:0 !important;
+		clear: both;
+		background-color: #ebeeef;
+}
+	
+.itemMenuPagPersonal,.itemMenuPagPersonal:hover,.itemMenuPagPersonal:focus{
+		font-size: 12px;		
+		color: #3399cc;											
+		text-align: left ;
+		width: 100%;
+		background-color: #ebeeef;		
+		border-radius: 0px ;
+			
+	}
+	
+	.subItemListMenuPagPersonal{
+		padding-bottom: 0!important;
+		padding-top: 0px;
+		box-shadow:	none ;		
+		webkit-box-shadow::	none;	
+		border-radius:0px;
+		position:relative;
+		width:100%;
+		border-left:1px #1D889A solid !important;	
+	}
+	
+
+.nav>li>div>button:hover {
+    text-decoration: none;
+    background-color: #CFD0D0 ; /* Color de fondo de la opción cuando se pasa el mouse */
+	color: #337ab7; /* Color del texto de la opción cuando se pasa el mouse */
+}
+
+.nav>li>div>ul>li>a:hover {
+    text-decoration: none;
+    background-color: #CFD0D0 ; /* Color de fondo de la opción cuando se pasa el mouse */
+	color: #337ab7; /* Color del texto de la opción cuando se pasa el mouse */
+}
+
+.fa-2x {
+    font-size: 1.5em;
+}
+
+.oculto{
+	display:none;
+}
+
+@media (max-width: 768px){
+	.soloDesktop {
+	    display:none;
+	}
+	.tooltip-desktop{
+		display: none !important;
+	}
+	
+}
+@media (min-width: 768px){
+	.soloMovil {
+	    display:none !important;
+	}
+}
+
+.contenidoAviso ul {
+   padding-left: 40px !important;
+   list-style: square !important;
+}
+
+.contenidoAviso ul li{
+   border-bottom:none;
+}
+
+
+</style>
+<style>
+	/*nuevo arbol menu estilos*/
+	.panelCursoReg {
+		width:95%;
+		overflow: hidden;
+		clear: both;
+		border: 3px solid #358dab;
+		border-radius: 5px;
+		padding: 7px;
+		margin-top: 5px;
+	}
+
+	.panelCursoReg a#a-VerAnuncios,.panelCursoReg a#ExpandirTodasOpciones,.panelCursoReg a#ContraerTodasOpciones {
+		text-decoration: none;
+		font-size: 12px;
+		color: #3399cc;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.panelCursoReg a#a-VerAnuncios{
+		color:black;
+		font-weight: bold;
+	}
+
+	div.campo-busqueda{
+		padding:0px;
+		width:100%;
+	}
+
+	div.divControles{
+		overflow:hidden;
+		padding-bottom:10px;
+	}
+	div.divControles>div{
+		padding-top:10px;
+	}
+</style>
+<script type="text/javascript">
+	
+	/*$(document).ready(function() {
+    	// run test on initial page load
+    	checkSize();
+    	// run test on resize of the window
+    	$(window).resize(checkSize);
+    	
+    	$('[data-toggle="tooltip"]').tooltip();
+	});
+	
+	
+	
+	//Function to the css rule
+	function checkSize(){
+		var tablaAnuncios=$("#tablaAnuncios");
+		var tablaAnunciosMovil=$("#tablaAnunciosMovil");
+	    if ($(".soloDesktop").css("display") == "none"){
+	    	var html=$("#tablaAnuncios").html();
+	    	$("#tablaAnuncios").html('');
+	    	if ($("#tablaAnunciosMovil").html()==''){
+	        	$("#tablaAnunciosMovil").html(html);
+	        }
+	    }
+	    if ($(".soloMovil").css("display") == "none"){
+	    	var html=$("#tablaAnunciosMovil").html();
+	    	$("#tablaAnunciosMovil").html('');
+	    	if ($("#tablaAnuncios").html()==''){
+	        	$("#tablaAnuncios").html(html);
+	        }
+	    }
+	}
+	
+	
+	function abrirAnuncios(){
+		if ($("#anunciosMovil").hasClass("oculto")){
+			$("#anunciosMovil").removeClass("oculto");
+			$("#spanAnuncios").html("<b>Ocultar anuncios</b>");
+		}else{
+			$("#anunciosMovil").addClass("oculto");
+			$("#spanAnuncios").html("<b>Ver anuncios</b>");
+		}
+	}
+	
+	$(document).ready(function(){
+	
+		$("#a-Caracteristicas").click(function(){
+			$("#flecha-Caracteristicas").toggleClass('fa-caret-up');
+			$("#flecha-Caracteristicas").toggleClass('fa-caret-down');
+		})
+	});
+	
+	$(document).ready(function(){
+	
+		$("#a-Notas").click(function(){
+			$("#flecha-Notas").toggleClass('fa-caret-up');
+			$("#flecha-Notas").toggleClass('fa-caret-down');
+		})
+	});
+	
+	$(document).ready(function(){
+	
+		$("#a-ApoyoDictado").click(function(){
+			$("#flecha-ApoyoDictado").toggleClass('fa-caret-up');
+			$("#flecha-ApoyoDictado").toggleClass('fa-caret-down');
+		})
+	});
+	
+	$(document).ready(function(){
+	
+		$("#a-Informacion").click(function(){
+			$("#flecha-Informacion").toggleClass('fa-caret-up');
+			$("#flecha-Informacion").toggleClass('fa-caret-down');
+		})
+	});
+	
+	$(document).ready(function(){
+	
+		$("#a-Estadisticas").click(function(){
+			$("#flecha-Estadisticas").toggleClass('fa-caret-up');
+			$("#flecha-Estadisticas").toggleClass('fa-caret-down');
+		})
+	});
+	
+	$(document).ready(function(){
+	
+		$("#a-Anuncios").click(function(){
+			$("#flecha-Anuncios").toggleClass('fa-caret-up');
+			$("#flecha-Anuncios").toggleClass('fa-caret-down');
+		})
+	});
+	
+	$(document).ready(function(){
+	
+		$("#a-Jefatura").click(function(){
+			$("#flecha-Jefatura").toggleClass('fa-caret-up');
+			$("#flecha-Jefatura").toggleClass('fa-caret-down');
+		})
+		$("#a-Encuestas").click(function(){
+			$("#flecha-Encuesta").toggleClass('fa-caret-up');
+			$("#flecha-Encuesta").toggleClass('fa-caret-down');
+		})
+	});
+		
+	*/
+function mostrarOcultarAnunciosMovil(){
+	$('#AISAMOV').parent().toggleClass('contenedorOculto');
+}
+
+function contraerOpciones(){
+	$(".panelCursoReg .tituloN1.desplegado").click();
+}
+function expanderOpciones(){
+	$(".panelCursoReg .tituloN1:not(.desplegado)").click();
+}
+
+$(document).ready(function() {
+	//ejecutamos la funcion por primera vez
+	moverAnuncio();
+	//ejecutamos la funcion en cada redimensionamiento de la pagina
+	$(window).resize(moverAnuncio);
+	
+	$('[data-toggle="tooltip"]').tooltip();
+});
+
+function moverAnuncio(){
+	var anunciosDesk=$("#AISADESK_CA");
+	var anunciosMovil=$("#AISAMOV_CA");
+
+	var contAnunciosDeskOculto=$("#AISADESK").parent().css("display") == "none";
+	var contAnunciosMovilOculto=$("#AISAMOV").parent().css("display")== "none";
+
+	if (contAnunciosDeskOculto){
+		var chldNodes=anunciosDesk[0].childNodes;
+		if(anunciosMovil[0].childNodes.length==0){
+			for(var i=0;i<chldNodes.length;i++){
+				$(anunciosMovil).append(chldNodes[i]);
+			}
+		}
+	}
+	if (contAnunciosMovilOculto){
+		var chldNodes=anunciosMovil[0].childNodes;
+		if(anunciosDesk[0].childNodes.length==0){
+			for(var i=0;i<chldNodes.length;i++){
+				$(anunciosDesk).append(chldNodes[i]);
+			}
+		}
+	}
+}
+</script>
+
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/ocwcurpa.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/evaluacionescurso.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/foro.js"></script>   
+
+
+<script language="JavaScript" type="text/javascript">
+
+function login()
+{
+  var u = "";
+  var i = "";
+  var s = "";
+  var r = "";
+  var param = "";
+  var a = "Ingresar";  
+  var ruta = "/login?accion=";
+  var d, w;
+  var nw="1";
+  var logoutlogin="0";
+  var diAux = "di=es";
+  var rutaFinal = "";
+  
+  if (arguments[0] && typeof arguments[0] == "object" ) {
+    for(var n in arguments[0]) {
+      if (n=="r") {r=arguments[0][n];}
+      else if (n=="nw") {nw=arguments[0][n];}
+	    else if (n=="logoutlogin") {logoutlogin=arguments[0][n];}
+      else if (n=="di") { if (arguments[0][n]=="en") { diAux = "di=en"; } else if (arguments[0][n]=="pt") { diAux = "di=pt"; } }
+      else if (n=="a" && arguments[0][n]=="IngresarRNU" ) {a="IngresarRNU";}
+      else if (n=="a" && arguments[0][n]=="IngresarRDU" ) {a="IngresarRDU"; ruta = "/en?accion=";}
+	  else if (n=="a" && arguments[0][n]=="eIngresarRDU" ) {a="IngresarRDU"; ruta = "/ein?accion=";}
+      else { 
+	      param += "&" + n + "=" + (n!="u"?arguments[0][n]:arguments[0][n].replace(/\&/g, "PucpAmpersand").replace(/\?/g, "PucpQuestion")); 
+		    if (n=="s") {s=arguments[0][n];}
+		    if (n=="u") {u=arguments[0][n];}
+	    }
+    }
+    param += "&" + diAux;
+  } else {
+    if (arguments[0]) { u = arguments[0]; }
+    if (arguments[1]) { i = arguments[1]; }
+    if (arguments[2]) { s = arguments[2]; }
+    if (arguments[3]) { r = arguments[3]; }
+    param = "&u=" + u.replace(/\&/g, "PucpAmpersand").replace(/\?/g, "PucpQuestion") + "&i=" + i + "&s=" + s;
+  }
+
+  s = s.toLowerCase();  
+
+  if (a=='IngresarRNU' || a=='IngresarRDU') {
+    rutaFinal = ruta + a + param;
+    nw = "0";
+  } else if (s=='' || s=='cv') {
+    rutaFinal = '/pucp/jsp/Intranet.jsp?url=' + u.replace(/\&/g, "PucpAmpersand").replace(/\?/g, "PucpQuestion");
+    nw = "0";
+  } else if (s=='ch') {
+	
+    rutaFinal = 'http://chat.pucp.edu.pe/config/fvalidacion_chat.php?url=' + u;
+  } else if (s=='opv') {
+    nw = "0";
+
+
+
+    if (u.indexOf("https://open.pucp.edu.pe") == 0) rutaFinal = u;
+
+  } else {
+    alert('El servicio al que desea ingresar no es reconocido.');
+    rutaFinal = '/pucp/jsp/Tutorial.jsp';
+  }
+
+  if (nw == "0") { 
+    if (logoutlogin == "0") { 
+	    top.location.href = rutaFinal;
+	  } else {
+	    if (logoutlogin == "1") {
+	      if (diAux == "di=en") {
+		      if (!confirm('If you have another open session on this computer at the moment, please consider that it might be closed automatically.')) 
+		        return;
+		    } else {
+		      if (!confirm('Si en estos momentos tiene una sesión en este equipo, esta se cerrará automáticamente para crear una nueva.')) 
+		        return;
+        }
+	    } 
+    
+      if (rutaFinal.substring(0, 4) == 'http') { 
+	      top.location.href = "/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion&"+diAux+"&urlredirect="+rutaFinal;
+      } else { 
+        top.location.href = "/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion&"+diAux+"&urlredirect=https://ares.pucp.edu.pe"+rutaFinal;
+      }
+	  }
+  } else {
+    d = new Date();
+    w=window.open(rutaFinal, "login" + d.valueOf(), "location=yes,status=yes,resizable=yes,toolbar=yes,scrollbars=yes,top=0,left=0,width=790,height=520", 1 );  
+    if (r == "1") { return w; }
+  }
+}
+
+</script>
+
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/images.js"> </script>
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/GruposChat.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/documentoscurso.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="Grupos.js"></script>
+<script type="text/javascript" language="JavaScript1.2" src="ocwcurpa_data/evaluCursoProceso.js"></script>
+<script type="text/javascript" src="ocwcurpa_data/pucpArbol-1.0.1.js"></script>
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body bgcolor="#ffffff" topmargin="0" marginwidth="0" marginheight="0">
+
+
+
+<form action="ocwcurpa" method="post" name="formcurso">
+<input type="hidden" name="clavecurso" value="1FIS02">
+<input type="hidden" name="tipocurso" value="01">
+<input type="hidden" name="nombreCurso" value="FÍSICA 1">
+<input type="hidden" name="codigo" value="20225944">
+<input type="hidden" name="cicloano" value="2023">
+<input type="hidden" name="ciclo" value="02">
+<input type="hidden" name="tipociclo" value="00">
+<input type="hidden" name="session" value="0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6">
+<input type="hidden" name="esVeedor" value="">
+<input type="hidden" name="usuario" value="20225944">
+<input type="hidden" name="url" value="/pucp/ocr/ocwcurpa/ocwcurpa?accion=Ingresar&amp;clavecurso=1FIS02&amp;cicloano=2023&amp;ciclo=02&amp;tipociclo=00">
+<input type="hidden" name="cSoloVigentes" value="1">
+<input type="hidden" name="mensaje" value="No existen eventos del curso para usted">
+
+<!-- GWO 06-04-16 Verificamos si solo es o ha sido alumno -->
+
+
+<div class="btn-group" align="right" width="100%" style="float:right; margin-bottom: 10px;">
+      <div class="btn-group">
+            <button type="button" role="link" class="btn btn-default pucpSubMenu" onclick="javascript:location.href='/pucp/ocr/ocwbucur/ocwbucur?accion=Ingresar&amp;clavecurso=1FIS02'">
+               Cursos regulares
+            </button>
+      </div>
+</div>
+
+<br>
+<!-- Enalce PUCPMOVIL -->
+
+<!--<table width="100%" border="0">
+    <tr>
+    <td>&nbsp;</td>
+    <td width="60%" align="right">
+    <a class="pucpLink" href="http://dirinfo.pucp.edu.pe/pucpmovil.htm"  target="_blank" onMouseOver="self.status = ''; return true">
+    <IMG border=0 alt="Pucp Movil" src="/pucp/lib/images/pucpMovil.gif"></a></td> 
+  </tr>
+</table>-->
+
+<!-- -->
+
+<table class="pucpTablaTitulo" width="100%">
+  <tbody><tr>
+    <td class="pucpTitulo" width="80%">
+    FÍSICA 1 (1FIS02)
+    </td>
+	    
+    <td width="20%" align="right">
+    <!-- <a class="pucpLink" href="http://dirinfo.pucp.edu.pe/pucpmovil.htm"  target="_blank" onMouseOver="self.status = ''; return true"> -->
+    <!-- IMG border=0 alt="Pucp Movil" src="/pucp/lib/images/pucpMovil.gif"> -->
+    <!--<IMG border=0 alt="Pucp Movil" src="/pucp/ocr/ocwcurpa/jsp/images/pucpMovil.png" data-container='body' data-toggle='tooltip-desktop' data-trigger='hover' data-placement='left' title='Acerca de PucpMovil'>-->
+    <!--</a>-->
+    <a style="float:right;" class="PucpLink" href="http://dirinfo.pucp.edu.pe/pucpmovil.htm" target="_blank">Acerca de PUCP Móvil</a>
+    
+    </td>  
+	
+  </tr>
+</tbody></table>
+<br>
+
+<table border="0" width="100%">
+  <tbody><tr>
+    
+    <td width="30%" class="pucpEtiqEdicion"><b>Curso regular PRESENCIAL</b></td>
+    <td width="30%" class="pucpEtiqEdicion">
+    
+      &nbsp;
+            
+    </td>
+    <td width="40%" class="pucpEtiqEdicion"><b>   4.50 créditos</b></td>
+  </tr>
+  <tr>
+    <td class="pucpEtiqEdicion">Estudios Generales Ciencias</td>
+    <td class="pucpEtiqEdicion">SECCION FISICA</td>    
+    <td align="left" class="pucpEtiqEdicion">CICLO
+    <select name="ComboCiclo" class="PucpCampo" onchange="select_cicloano_change()"><option value="2024-01-00">2024-1
+</option><option value="2024-00-00">2024-0
+</option><option value="2023-02-00" selected="selected">2023-2
+</option></select>
+    
+    &nbsp;
+    
+  		<div style="display:inline-block"><input type="checkbox" name="checkSoloVigentes" onchange="select_checkVigentes_change()" value="1" checked="checked"> Solo ciclos vigentes</div>
+  		
+    </td>
+  </tr>
+  <tr>
+    <td class="pucpEtiqEdicion">&nbsp;</td>
+    <td class="pucpEtiqEdicion">&nbsp;</td>    
+    <td align="left" class="pucpEtiqEdicion">Desde: 14-08-2023 hasta: 09-12-2023</td>
+  </tr>
+      
+</tbody></table>
+<script type="text/javascript">
+
+function Go(){return}
+
+</script>
+<!--Fix para poder incluir un elemento complejo en el arbol - Victor Avalos -23/11/2016-->
+<div id="divAnunciosMod" style="display:none;"></div>
+<!--Nueva version de los controles del panel - Victor Avalos -23/11/2016-->
+<div class="panelCursoReg">
+	<div class="visible-xs-block visible-sm-block" style="width: 100%;text-align: right;">
+		<a id="a-VerAnuncios" href="javascript:mostrarOcultarAnunciosMovil();">Ver Anuncios</a>
+	</div>
+	<hr style="color: #358dab;border-color: rgb(141, 170, 179);border-top: 0;">
+	<div id="divPanelCursoReg">
+		<div class="divControles">
+			<div class="col-sm-6 col-xs-12">
+				<div class="input-group campo-busqueda" style="text-align: left;">
+					<input type="text" id="inptBusq" class="form-control ui-autocomplete-input" aria-label="busqueda rápida" placeholder="Ingrese la opcion a buscar" autocomplete="off">
+					<span class="input-group-addon glyphicon glyphicon-search"></span>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-12" style="text-align: right;padding-bottom:10px">
+				<a id="ExpandirTodasOpciones" href="javascript:expanderOpciones();">Expandir todo</a> / <a id="ContraerTodasOpciones" href="javascript:contraerOpciones();">Contraer todo</a>
+			</div>
+		</div>
+	<div id="PANELCURSOREG_divColum1" class="col-md-4 col-sm-6 col-xs-12" idarbol="PANELCURSOREG"><div class="contenedor-primario contenedorOculto visible-xs-block visible-sm-block"><div id="AISAMOV" class="tituloN1 desplegado"><a role="menu">Anuncios</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li class=" noHover"><div id="AISAMOV_CA"></div></li></ul></div></div><div class="contenedor-primario"><div id="AISS" class="tituloN1 desplegado"><a role="menu">Sumilla y características generales</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li><div id="AISS_AISSSYDG"><a role="link" href="javascript:mostrarAlertaIdioma(AbrirInformacionGeneral());">Sumilla y datos generales del curso</a></div></li><li><div id="AISS_AISSC"><a role="link" href="javascript:location.href=AbrirCurriculos();">Currículos donde está presente</a></div></li><li><div id="AISS_AISSE"><a role="link" href="javascript: location.href=EquivalenciasdeCurso();">Equivalencias del curso</a></div></li></ul></div></div><div class="contenedor-primario"><div id="AISHA" class="tituloN1 desplegado"><a role="menu">Herramientas académicas del ciclo</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li><div id="AISHA_AISHA"><a role="link" href="javascript:TomarAsistenciaResponsive();">Asistencia</a></div></li><li><div id="AISHA_AISHD"><a role="link" href="javascript:DocumentosCurso();">Documentos</a></div></li><li><div id="AISHA_AISHEVL"><a role="link" href="javascript:EvaluacionesDelCurso();">Evaluaciones en línea</a></div></li><li><div id="AISHA_AISHEVT"><a role="link" href="javascript:mostrarAlertaIdioma(AgendaCurso);">Eventos</a></div></li><li><div id="AISHA_AISHCR"><a role="link" href="javascript:mostrarAlertaIdioma('/pucp/correo/cowcoreo/cowcoreo;jsessionid=0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6?accion=Ingresar');">Correo</a></div></li><li><div id="AISHA_AISHG"><a role="link" href="javascript:mostrarAlertaIdioma(VerMisContactos,['0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6','0','C*','2023','02','00','1FIS02']);">Grupos</a></div></li><li><div id="AISHA_AISHF"><a role="link" href="javascript:mostrarAlertaIdioma(foroCurso);">Foro</a></div></li><li><div id="AISHA_AISHCH"><a role="link" href="javascript:mostrarAlertaIdioma(AbrirNuevoChat());">Chat</a></div></li><li><div id="AISHA_AISHE"><a role="link" href="javascript:EncuestasDelCurso();">Encuestas</a></div></li><li><div id="AISHA_AISHT"><a role="link" href="javascript:mostrarAlertaIdioma(TareasCurso);">Tareas</a></div></li></ul></div></div></div><div id="PANELCURSOREG_divColum2" class="col-md-4 col-sm-6 col-xs-12" idarbol="PANELCURSOREG"><div class="contenedor-primario"><div id="AISPC" class="tituloN1 desplegado"><a role="menu">Programa para el ciclo</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li><div id="AISPC_AISPCPA"><a role="link" href="javascript:location.href=SilaboDeCurso();">Programa analítico</a></div></li><li><div id="AISPC_AISPCH"><a role="link" href="javascript:location.href=HorariosdeCurso();">Horarios y sesiones</a></div></li><li><div id="AISPC_AISPCP"><a role="link" href="javascript:location.href=ProfesoresdeCurso();">Profesores</a></div></li><li><div id="AISPC_AISPCA"><a role="link" href="javascript:location.href=AlumnosdeCurso();">Alumnos</a></div></li></ul></div></div><div class="contenedor-primario"><div id="AISNE" class="tituloN1 desplegado"><a role="menu">Notas y estadísticas en el ciclo</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li><div id="AISNE_AISNEFC"><a role="link" href="javascript:location.href=FormaCalificacion();">Forma de calificación del curso</a></div></li><li><div id="AISNE_AISNENF"><a role="link" href="javascript:location.href=NotasFinalesdeCurso();">Notas finales</a></div></li><li><div id="AISNE_AISNENP"><a role="link" href="javascript:location.href=NotasParcialesdeCurso();">Notas parciales</a></div></li><li><div id="AISNE_AISNER"><a role="menu">Reclamos</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><ul class="subitemsN2"><li id="AISNE_AISNER_AISNERR"><a role="link" href="javascript:mostrarAlertaIdioma(RecalificacionRegistro());">Registro de solicitud de recalificación</a></li><li id="AISNE_AISNER_AISNERC"><a role="link" href="javascript:mostrarAlertaIdioma(RecalificacionConsulta());">Consultar mis solicitudes de recalificación</a></li></ul></li><li><div id="AISNE_AISNEEC"><a role="link" href="javascript:mostrarAlertaIdioma(EstadisticasdeCurso());">Estadísticas del curso</a></div></li><li><div id="AISNE_AISNEECE"><a role="link" href="javascript:mostrarAlertaIdioma(EstadisticasdeCursoEspeci());">Estadísticas del curso por especialidad</a></div></li></ul></div></div><div class="contenedor-primario"><div id="AISJP" class="tituloN1 desplegado"><a role="menu">Jefes de práctica</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li><div id="AISJP_AISJPP"><a role="link" href="javascript:mostrarAlertaIdioma(InscripcionJefePractica());">Postular a jefe de práctica</a></div></li><li><div id="AISJP_AISJPI"><a role="link" href="javascript:mostrarAlertaIdioma(SeleccionJefePractica());">Inscritos a jefatura de práctica</a></div></li></ul></div></div></div><div id="PANELCURSOREG_divColum3" class="col-md-4 col-sm-6 col-xs-12" idarbol="PANELCURSOREG"><div class="contenedor-primario hidden-xs hidden-sm"><div id="AISADESK" class="tituloN1 desplegado"><a role="menu">Anuncios</a><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></div><div class="subitemsN1"><ul><li class=" noHover"><div id="AISADESK_CA"><div>
+	
+	
+	
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/pucp.css">
+<link rel="stylesheet" type="text/css" href="ocwcurpa_data/anuncios.css">
+<script type="text/javascript" src="ocwcurpa_data/virtualpaginate.js"></script><style type="text/css">.hidepiece{display:none}
+@media print{.hidepiece{display:block !important;}}
+</style>
+<script type="text/javascript">
+function BuscarAnuncios(){
+
+  var doc = document.formcurso; 
+  var session = doc.session.value;
+  
+  var clavecurso = doc.clavecurso.value;
+  var cicloano = doc.cicloano.value;
+  var ciclo = doc.ciclo.value;
+  var tipociclo = doc.tipociclo.value;
+  var ruta ="/pucp/anuncios/anwanunc/anwanunc;jsessionid=" + session + "?accion=Buscar";
+  ruta = ruta + "&clavecurso=" + clavecurso;
+  ruta = ruta + "&cicloano=" + cicloano + "&ciclo=" + ciclo + "&tipociclo=" + tipociclo;
+  window.location=ruta;
+  
+}
+
+function CrearAnuncios(){
+  var doc = document.formcurso;
+  var session = doc.session.value;
+  
+  var clavecurso = doc.clavecurso.value;
+  var cicloano = doc.cicloano.value;
+  var ciclo = doc.ciclo.value;
+  var tipociclo = doc.tipociclo.value;  
+  var ruta ="/pucp/anuncios/anwanunc/anwanunc;jsessionid=" + session + "?accion=Crear";
+  ruta = ruta + "&clavecurso=" + clavecurso;
+  ruta = ruta + "&cicloano=" + cicloano + "&ciclo=" + ciclo + "&tipociclo=" + tipociclo; 
+  window.location=ruta; 
+  
+}
+</script>
+
+<table id="tablaAnuncios" width="100%" border="0">
+              <!--<tr>
+              	<td><img src="/pucp/anuncios/jsp/images/i_tituloAnuncios.gif"></td>
+              </tr>-->
+              <tbody><tr>
+                <td><div id="contenedor" style="width:100%; overflow:auto;" class="contenidoAvisowrapper">
+                
+                    <div class="contenidoAviso hidepiece" style="display: block;">
+                      <table width="100%" border="0">
+                        <tbody><tr>
+                          <td class="pucpCelda"><strong><u>FIS1 [0212] - Clase de recuperación [Fer]</u></strong></td>
+                        </tr>
+                        <tr>
+                          <td class="pucpCelda"><div id="Layer1" style="width:100%; height:130px; overflow: auto;">
+<br>DÍA: martes 22-08-2023
+<br>HORA: 17:00-19:00 horas
+<br>AULA: E206
+<br>PROF.: V. Canchos
+<br>
+<br>[Esta clase recuperará la clase del día 30/08/2023 [Fer: Día de Santa Rosa de Lima]]
+<br>
+<br>Estudios Generales Ciencias
+<br></div></td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+	                        <tbody><tr>
+	                          <td colspan="2"><hr></td>
+	                        </tr>
+                          <tr class="pucpCelda"><td width="50%"><span class="pucpEtiqEdicion">Publicado: </span>21 Ago 2023 07:40 AM</td>
+                          
+							<td width="50%"><span class="pucpEtiqEdicion">Por: </span>Estudios Generales Ciencias</td></tr>
+						 
+                          
+                          </tbody></table>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </div>
+                                                                             
+                </div></td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <div id="galleryselect" class="paginationstyle" style="display: none;"> <a href="#" rel="previous">&lt;&lt;</a>
+                        <select name="select" style="width: 200px" class="pucpCelda">
+                        </select>
+                      <a href="#" rel="next">&gt;&gt;</a> </div>
+                    <script type="text/javascript">
+
+var gallery5=new virtualpaginate({
+	piececlass: "contenidoAviso",
+	piececontainer: 'div',
+	pieces_per_page: 1,
+	defaultpage: 0,
+	wraparound: false,
+	persist: false
+})
+      
+gallery5.buildpagination(["galleryselect"], ["21 Ago - FIS1 [0212] - Clase de recuperación [Fer]"])
+
+      </script>
+                </td>
+              </tr>
+              
+          </tbody></table>
+</div></div></li></ul></div></div></div><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul></div>
+</div>
+
+<script>
+inicializarArbolMenu();
+configurarLibreria({idPanel:"GewfaculAbrirPanel",indGuardarConf:false});
+configurarNumeroColumnas(3,"col-md-4 col-sm-6 col-xs-12")
+nuevoArbol("PANELCURSOREG",'Panel curso regular');
+<!-- primera columna  -->
+	agregarElementoPrimerNivel("AISAMOV","Anuncios","",{numColumna:1,desplegado:true,oculto:true,claseExtra:"visible-xs-block visible-sm-block"});
+		agregarElemento("AISAMOV_CA","","","AISAMOV",{extraerContenidoDe:document.getElementById("divAnunciosMod"),claseExtra:"noHover"});
+	<!-- primer panel  -->
+	agregarElementoPrimerNivel("AISS","Sumilla y características generales","",{numColumna:1,desplegado:true});
+		agregarElemento("AISS_AISSSYDG","Sumilla y datos generales del curso","javascript:mostrarAlertaIdioma(AbrirInformacionGeneral());","AISS");
+		agregarElemento("AISS_AISSC","Currículos donde está presente","javascript:location.href=AbrirCurriculos();","AISS");
+		agregarElemento("AISS_AISSE","Equivalencias del curso","javascript: location.href=EquivalenciasdeCurso();","AISS");
+	<!-- segundo panel  -->
+	agregarElementoPrimerNivel("AISHA","Herramientas académicas del ciclo","",{numColumna:1,desplegado:true});
+		agregarElemento("AISHA_AISHA","Asistencia","javascript:TomarAsistenciaResponsive();","AISHA");
+		agregarElemento("AISHA_AISHD","Documentos","javascript:DocumentosCurso();","AISHA");
+		agregarElemento("AISHA_AISHEVL","Evaluaciones en línea","javascript:EvaluacionesDelCurso();","AISHA");
+		agregarElemento("AISHA_AISHEVT","Eventos","javascript:mostrarAlertaIdioma(AgendaCurso);","AISHA");
+		agregarElemento("AISHA_AISHCR","Correo","javascript:mostrarAlertaIdioma('/pucp/correo/cowcoreo/cowcoreo;jsessionid=0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6?accion=Ingresar');","AISHA");
+		agregarElemento("AISHA_AISHG","Grupos","javascript:mostrarAlertaIdioma(VerMisContactos,['0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6','0','C*','2023','02','00','1FIS02']);","AISHA");
+		agregarElemento("AISHA_AISHF","Foro","javascript:mostrarAlertaIdioma(foroCurso);","AISHA");
+		agregarElemento("AISHA_AISHCH","Chat","javascript:mostrarAlertaIdioma(AbrirNuevoChat());","AISHA");
+		agregarElemento("AISHA_AISHE","Encuestas","javascript:EncuestasDelCurso();","AISHA");
+		agregarElemento("AISHA_AISHT","Tareas","javascript:mostrarAlertaIdioma(TareasCurso);","AISHA");
+<!-- fin de la primera columna  -->
+<!-- segunda columna  -->
+	<!-- primer panel  -->
+	agregarElementoPrimerNivel("AISPC","Programa para el ciclo","",{numColumna:2,desplegado:true});
+		agregarElemento("AISPC_AISPCPA","Programa analítico","javascript:location.href=SilaboDeCurso();","AISPC");
+		agregarElemento("AISPC_AISPCH","Horarios y sesiones","javascript:location.href=HorariosdeCurso();","AISPC");
+		agregarElemento("AISPC_AISPCP","Profesores","javascript:location.href=ProfesoresdeCurso();","AISPC");
+		agregarElemento("AISPC_AISPCA","Alumnos","javascript:location.href=AlumnosdeCurso();","AISPC");
+		
+		
+	<!-- segundo panel  -->
+	agregarElementoPrimerNivel("AISNE","Notas y estadísticas en el ciclo","",{numColumna:2,desplegado:true});
+		agregarElemento("AISNE_AISNEFC","Forma de calificación del curso","javascript:location.href=FormaCalificacion();","AISNE");
+		agregarElemento("AISNE_AISNENF","Notas finales","javascript:location.href=NotasFinalesdeCurso();","AISNE");
+		agregarElemento("AISNE_AISNENP","Notas parciales","javascript:location.href=NotasParcialesdeCurso();","AISNE");
+		
+		
+		
+		agregarElemento("AISNE_AISNER","Reclamos","","AISNE");
+			agregarElemento("AISNE_AISNER_AISNERR","Registro de solicitud de recalificación","javascript:mostrarAlertaIdioma(RecalificacionRegistro());","AISNE_AISNER");
+			agregarElemento("AISNE_AISNER_AISNERC","Consultar mis solicitudes de recalificación","javascript:mostrarAlertaIdioma(RecalificacionConsulta());","AISNE_AISNER");
+		
+		
+		
+		agregarElemento("AISNE_AISNEEC","Estadísticas del curso","javascript:mostrarAlertaIdioma(EstadisticasdeCurso());","AISNE");
+		agregarElemento("AISNE_AISNEECE","Estadísticas del curso por especialidad","javascript:mostrarAlertaIdioma(EstadisticasdeCursoEspeci());","AISNE");
+	<!-- tercer panel  -->
+	agregarElementoPrimerNivel("AISJP","Jefes de práctica","",{numColumna:2,desplegado:true});
+		agregarElemento("AISJP_AISJPP","Postular a jefe de práctica","javascript:mostrarAlertaIdioma(InscripcionJefePractica());","AISJP");
+		
+		agregarElemento("AISJP_AISJPI","Inscritos a jefatura de práctica","javascript:mostrarAlertaIdioma(SeleccionJefePractica());","AISJP");
+<!-- fin de la segunda columna  -->
+<!-- tercera columna  -->
+	agregarElementoPrimerNivel("AISADESK","Anuncios","",{numColumna:3,desplegado:true,claseExtra:"hidden-xs hidden-sm"});
+		agregarElemento("AISADESK_CA","","","AISADESK",{extraerContenidoDe:document.createElement("div"),claseExtra:"noHover"});
+<!-- fin de la tercera columna  -->
+
+imprimirArbol("divPanelCursoReg");
+imprimirCuadrodeBusqueda("inptBusq",{anadirA:"#divPanelCursoReg"});
+</script>
+
+
+</form><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+
+
+
+
+ 
+
+
+
+
+<hr class="pucppiehr"> 
+	<div style="width: 100%;display: table;">
+		<div class="pucppiedesktop" style="width: 45%; text-align:left;">
+			<div style="width:100%">
+				<span class="pucpCampo">
+					© Pontificia Universidad Católica del Perú
+				</span><br>
+				<span class="pucpCampo">
+					Av. Universitaria 1801, San Miguel
+				</span><br>
+				<span class="pucpCampo">
+					Lima-32 PERU      Telf. (511) 6262000
+				</span><br>			
+			</div>
+		</div>		
+		<div class="divhorapucp" style="display: table-cell; text-align:center;">
+			<div style="width:100%">
+				<span class="pucpCampo" id="horapucp">
+					<a class="pucpMailLink" href="javascript:top.mostrarHoraPUCPAlt()" id="linkHora" style="display: inline-block;">Hora PUCP</a>
+					<span id="textoHora"></span>
+				</span>
+			</div>
+			<div class="pucppiemovil" style="width:100%">
+					
+				<input type="hidden" name="idConfContacto" value="null">
+				<input type="hidden" name="url__" value="/pucp/ocr/ocwcurpa/jsp/AccionIngresar.jsp">				
+				<span class="pucpCampo">consultas a: <a href="https://ares.pucp.edu.pe/pucp/correo/cowcrint/cowcrint;jsessionid=0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6?accion=CrearMensaje&amp;dirPara=asistencia-dti@pucp.edu.pe&amp;dirCC=&amp;dirCCO=&amp;asunto=&amp;mensaje=" class="pucpMailLink" onmouseover="self.status = ''; return true">asistencia-dti@pucp.edu.pe</a></span>
+				
+			</div>
+			<div class="pucppiemovil" style="width:100%">
+				<span class="pucpCampo">
+					© Pontificia Universidad Católica del Perú
+				</span><br>
+				<span class="pucpCampo">
+					Av. Universitaria 1801, San Miguel
+				</span><br>
+				<span class="pucpCampo">
+					Lima-32 PERU      Telf. (511) 6262000
+				</span><br>			
+			</div>
+		</div>
+		
+		<div class="pucppiedesktop" style="width: 45%; text-align:right;">			
+			<div style="width:100%">
+				
+				<span class="pucpCampo">consultas a: <a href="https://ares.pucp.edu.pe/pucp/correo/cowcrint/cowcrint;jsessionid=0000qRPizYOM0SXf-VleSlGlRZ7:1h5qh4rp6?accion=CrearMensaje&amp;dirPara=asistencia-dti@pucp.edu.pe&amp;dirCC=&amp;dirCCO=&amp;asunto=&amp;mensaje=" class="pucpMailLink" onmouseover="self.status = ''; return true">asistencia-dti@pucp.edu.pe</a></span>							
+				<br>
+				
+				<span class="pucpCampo">Dirección de Tecnologías de Información</span>
+			</div>			
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+</body></html>
