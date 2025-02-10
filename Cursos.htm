@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!-- Nueva cabecera de CV -->
 <html style="overflow:hidden;" lang="es"><head>
-    <title>Pontificia Universidad Católica del Perú - Campus Virtual PUCP</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Pontificia Universidad CatÃ³lica del PerÃº - Campus Virtual PUCP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <meta http-equiv="Expires=-1" content="text/html; charset=iso-8859-1">
     <meta http-equiv="Expires" content="-1">
@@ -96,7 +96,7 @@ function login()
 		      if (!confirm('If you have another open session on this computer at the moment, please consider that it might be closed automatically.')) 
 		        return;
 		    } else {
-		      if (!confirm('Si en estos momentos tiene una sesión en este equipo, esta se cerrará automáticamente para crear una nueva.')) 
+		      if (!confirm('Si en estos momentos tiene una sesiÃ³n en este equipo, esta se cerrarÃ¡ automÃ¡ticamente para crear una nueva.')) 
 		        return;
         }
 	    } 
@@ -156,7 +156,7 @@ function login()
 	<body style="margin: 0;overflow: hidden;">	
 		<div id="header" role="banner"> 	
 				<div class="pucpMenuUsuario" id="menu-toggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Menu">
-					<div class="pucpTituloMenu"> MENÚ </div>
+					<div class="pucpTituloMenu"> MENÃš </div>
 					<div>
 						<div class="pucpBotonMenu"></div>
 						<div class="pucpBotonMenu"></div>
@@ -174,7 +174,7 @@ function login()
 				
 
 				<div class="pucpBotonCerrarSesion">
-					<span class="cerrar-sesion" id="cerrar-sesion" onclick="javascript:actualizarIframe.call(this,'/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion');" data-toggle="tooltip" data-placement="bottom" title="" aria-hidden="true" data-original-title="Cerrar sesión"><img id="img-logout" src="Cursos_files/iconoLogout.png"></span>				
+					<span class="cerrar-sesion" id="cerrar-sesion" onclick="javascript:actualizarIframe.call(this,'/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion');" data-toggle="tooltip" data-placement="bottom" title="" aria-hidden="true" data-original-title="Cerrar sesiÃ³n"><img id="img-logout" src="Cursos_files/iconoLogout.png"></span>				
 				</div>
 
 				<div class="pucpLogo">
@@ -196,7 +196,7 @@ function login()
 <ul class="sidebar-nav menuNavPrincipal">
 	
 	<li>
-		<a id="matricula" onclick="javascript:actualizarIframe('Menu/Matricula/Matricula_files/pmwprinc.htm');">Matrícula</a>
+		<a id="matricula" onclick="javascript:actualizarIframe('Menu/Matricula/Matricula_files/pmwprinc.htm');">MatrÃ­cula</a>
 	</li>			
 	
 	<li>
@@ -223,7 +223,7 @@ function login()
 		<a id="correo" onclick="javascript:mostrarCorreoGPUCP('0000806pJBU_WPC6usVhhLTeQn4:1dool360v');">Correo</a>
 	</li>		
 	<li>
-		<a id="pagpersonal" onclick="javascript:actualizarIframe('/pucp/general/gewpealu/gewpealu?accion=ElegirPanel&amp;misdatos=1');">Página personal</a>
+		<a id="pagpersonal" onclick="javascript:actualizarIframe('/pucp/general/gewpealu/gewpealu?accion=ElegirPanel&amp;misdatos=1');">PÃ¡gina personal</a>
 	</li>
 	<li>
 		<a id="miuniversidad" onclick="javascript:expandirContraerSubMenu(1,'submiuniversidad','flecha-miuniversidad');" role="menu">Universidad<i class="fa fa-caret-right" id="flecha-miuniversidad"></i></a>
@@ -248,7 +248,7 @@ function login()
 			<li>
 										
 				
-				<a id="uniacad" onclick="javascript:expandirContraerSubMenu(2,'subuniacad','flecha-uniacad');" role="menu">Unidades académicas<i class="fa fa-caret-right" id="flecha-uniacad"></i></a>
+				<a id="uniacad" onclick="javascript:expandirContraerSubMenu(2,'subuniacad','flecha-uniacad');" role="menu">Unidades acadÃ©micas<i class="fa fa-caret-right" id="flecha-uniacad"></i></a>
 				<ul id="subuniacad" class="submenu-nivel-2" style="display:none;">
 					
 					<li>
@@ -262,21 +262,21 @@ function login()
 				
 			</li>
 			<li>
-			<a id="sag" onclick="javascript:actualizarIframe('/pucp/estadist/eswsagcv/eswsagcv?accion=AbrirPanel');">Estadísticas y S.A.G.</a>
+			<a id="sag" onclick="javascript:actualizarIframe('/pucp/estadist/eswsagcv/eswsagcv?accion=AbrirPanel');">EstadÃ­sticas y S.A.G.</a>
 			</li>
 		</ul>
 	</li>
 	<li>
-		<a id="traacaalum" onclick="javascript:actualizarIframe('/pucp/solservi/sowtraca/sowtraca?accion=ListarTramites');">Trámites académicos</a>
+		<a id="traacaalum" onclick="javascript:actualizarIframe('/pucp/solservi/sowtraca/sowtraca?accion=ListarTramites');">TrÃ¡mites acadÃ©micos</a>
 	</li>
 	<li>
 		<a id="servicios" onclick="javascript:actualizarIframe('/pucp/solservi/sowatenc/sowatenc?accion=Panel');">Servicios</a>
 	</li>
 	<li class="configuracion">
-		<a id="configuracion" onclick="javascript:expandirContraerSubMenu(1,'subconfiguracion','flecha-configuracion');" role="menu">Configuración/Settings<i class="fa fa-caret-right" id="flecha-solicitudes"></i></a>
+		<a id="configuracion" onclick="javascript:expandirContraerSubMenu(1,'subconfiguracion','flecha-configuracion');" role="menu">ConfiguraciÃ³n/Settings<i class="fa fa-caret-right" id="flecha-solicitudes"></i></a>
 		<ul id="subconfiguracion" class="submenu-nivel-1" style="display:none;">
 			<li>
-				<a id="cambcontraseÃ±a" onclick="javascript:actualizarIframe.call(this,'/pucp/usuarios/uswclave/uswclave?accion=Ingresar');">Contraseña/Password</a>
+				<a id="cambcontraseÃƒÂ±a" onclick="javascript:actualizarIframe.call(this,'/pucp/usuarios/uswclave/uswclave?accion=Ingresar');">ContraseÃ±a/Password</a>
 			</li>	
 			
 		</ul>
@@ -285,7 +285,7 @@ function login()
 		<a id="manualuso" onclick="javascript:cargarTutorial();">Manual de ayuda</a>
 	</li>
 	<li>
-		<a id="cerrarsesion" onclick="javascript:actualizarIframe('/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion');">Cerrar sesión</a>
+		<a id="cerrarsesion" onclick="javascript:actualizarIframe('/pucp/usuarios/uswlogin/uswlogin?accion=CerrarSesion');">Cerrar sesiÃ³n</a>
 	</li>
 </ul>							
 			</div>
@@ -297,7 +297,7 @@ function login()
 				</div>				
 				<iframe id="frame_mid" name="frame_mid" src="Cursos_files/ocwmcurs.htm" style="width: 1488px; height: 750px; border: 0px;"></iframe>				
 				<noframes> 
-				  <p>Esta página usa marcos, pero su explorador no los admite.</p>				
+				  <p>Esta pÃ¡gina usa marcos, pero su explorador no los admite.</p>				
 			  </noframes> 
 			</div>
 		</div>
